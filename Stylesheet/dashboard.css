@@ -30,7 +30,7 @@ table {
       overflow-x: auto;
       /* display: flow-root; */
 
-      table-layout:fixed;
+      table-layout:auto;
 
       white-space: nowrap;
 
