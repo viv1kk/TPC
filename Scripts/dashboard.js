@@ -1,0 +1,9 @@
+$(document).ready(()=>{
+$('#dtBasicExample').DataTable({
+  "paging":false,
+  "ordering":true,
+  "info":true,
+  "searching":false,
+});
+$('.dataTables_length').addClass('bs-select');
+});
