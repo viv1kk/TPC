@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>Add Company</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../Stylesheet/addcompany.css" rel="stylesheet">
+
+  <script type="text/javascript" src="../Libs/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../Libs/jquery.dataTables.min.js"></script>
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-xl navbar-dark bg-info mb-1">
+    <div class= "container">
+      <a class="navbar-brand " href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <div class="navbar navbar-collapse ">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link ml-4 " href="#">Enroll a Student</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link ml-3 text-white" href="#">Add a Company for Placement</a>
+      </li>
+    </ul>
+    <form class="form-inline">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Sign Out</button>
+    </form>
+  </div>
+</div>
+</nav>
+
+
+
+<div class="jumbotron mb-1">
+  <div class="container-fluid row justify-content-center">
+    <div class="col-md-6 order-md-1">
+      <h4 class="mb-3 h4">Add a Company:</h4>
+
+
+      <div class="mb-5">
+
+        <label for="comp_name">Name of the Company:</label>
+        <input type="text" class="form-control" id="comp_name" placeholder="Name of the Company" value="">
+      </div>
+
+      <div class="mb-3">
+        <form class="was-validated">
+          <h4 class="d-flex justify-content-between align-items-center mb-4">
+            <span class="text-muted text-center">Select the Branches:</span>
+            <span class="badge badge-primary badge-pill">3</span>
+          </h4>
+
+          <ul class="mb-3">
+            <li class="d-flex justify-content-between lh-condensed">
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="branch_cse">
+                <label class="custom-control-label" for="branch_cse">Computer Science And Engineering</label>
+              </div>
+            </li>
+            <li class="d-flex justify-content-between lh-condensed">
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="branch_it">
+                <label class="custom-control-label" for="branch_it">Information Technology</label>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </div>
+
+      <hr class="md-4">
+
+      <button class="btn btn-primary" type="submit">Add Company</button>
+
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer mt-auto py-3 text-center">
+  <div class="container">
+    <span><a href="#" class="text-white">About us</a></span>
+  </div>
+</footer>
+
+<!-- <main role="main" class="container">
+<div class="jumbotron">
+<h1>Navbar example</h1>
+<p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
+<a class="btn btn-lg btn-primary" href="/docs/4.3/components/navbar/" role="button">View navbar docs &raquo;</a>
+</div>
+</main> -->
+
+
+<script type="text/javascript" src="../Scripts/addcompany.js"></script>
+</body>
+</html>

@@ -26,7 +26,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 
 table {
-      /* margin: auto; */
+      margin: auto;
       overflow-x: auto;
       /* display: flow-root; */
 
