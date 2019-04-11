@@ -3,8 +3,6 @@
  ?>
 
  <main>
-
-
    <div class="container">
 
      <div class="row ">
@@ -94,7 +92,7 @@
 
 
        <div class="col-md-8 order-md-1">
-         <h4 class="mb-3">Search for a Student:</h4>
+         <h4 class="mb-4">Search for a Student:</h4>
 
 
          <!-- first row -->
@@ -355,7 +353,6 @@
    </table>
    </div>
    </div>
-
  </main>
 
  <?php

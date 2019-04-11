@@ -1,9 +1,8 @@
 <?php
-require "../Header/header-addcompany.php"
+  require "../Header/header-addcompany.php"
 ?>
 
 <main>
-
 
   <div class="jumbotron mb-1">
     <div class="container-fluid row justify-content-center">
@@ -18,6 +17,7 @@ require "../Header/header-addcompany.php"
         </div>
 
         <div class="mb-3">
+
           <form class="was-validated">
             <h4 class="d-flex justify-content-between align-items-center mb-4">
               <span class="text-muted text-center">Select the Branches:</span>
@@ -38,12 +38,10 @@ require "../Header/header-addcompany.php"
                 </div>
               </li>
             </ul>
+            <hr class="md-4">
+            <button class="btn btn-primary" type="submit">Add Company</button>
           </form>
         </div>
-
-        <hr class="md-4">
-
-        <button class="btn btn-primary" type="submit">Add Company</button>
 
       </div>
     </div>
@@ -52,5 +50,5 @@ require "../Header/header-addcompany.php"
 
 
 <?php
-require "../Footer/footer-addcompany.php"
+  require "../Footer/footer-addcompany.php"
 ?>

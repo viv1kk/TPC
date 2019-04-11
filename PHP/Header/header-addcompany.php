@@ -21,7 +21,8 @@
   <link href="../../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../../Stylesheet/addcompany.css" rel="stylesheet">
+
+  <link href="../../Stylesheet/companyadd.css" rel="stylesheet">
 
   <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="../../Libs/jquery.dataTables.min.js"></script>
@@ -48,7 +49,7 @@
         <a class="nav-link ml-3 text-white" href="#">Add a Company for Placement</a>
       </li>
     </ul>
-    <form class="form-inline">
+    <form class="form-inline" action="../../includes/signout.inc.php">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Sign Out</button>
     </form>
   </div>

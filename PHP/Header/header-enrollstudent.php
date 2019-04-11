@@ -9,8 +9,6 @@
   }
 ?>
 
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -50,9 +48,10 @@
         <a class="nav-link ml-3" href="addcompany.php">Add a Company for Placement</a>
       </li>
     </ul>
-    <form class="form-inline">
+    <form class="form-inline" action="../../includes/signout.inc.php">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Sign Out</button>
     </form>
+
   </div>
 </div>
 </nav>

@@ -1,4 +1,5 @@
 body {
+      /* overflow-y: hidden;  */
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
   line-height:1.6;
@@ -15,14 +16,14 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   width: 100%;
   background-color:#31708f;
 
-  position: absolute;
+  position: relative;
   bottom:0;
 }
 
-.footer > .container {4
+/* .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
-}
+} */
 
 code {
   font-size: 80%;
