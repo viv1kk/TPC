@@ -12,10 +12,14 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 
 .footer {
+  width: 100%;
   background-color:#31708f;
+
+  position: absolute;
+  bottom:0;
 }
 
-.footer > .container {
+.footer > .container {4
   padding-right: 15px;
   padding-left: 15px;
 }
