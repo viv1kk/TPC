@@ -13,6 +13,6 @@
 </main> -->
 
 
-<script type="text/javascript" src="../../Scripts/addcompany.js"></script>
+<script src="../../Scripts/companyadd.js"></script>
 </body>
 </html>

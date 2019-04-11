@@ -5,6 +5,6 @@
     </div>
   </footer>
 
-  <script src="./Scripts/login-script.js"></script>
+  <script src="../Scripts/login-script.js"></script>
 </body>
 </html>

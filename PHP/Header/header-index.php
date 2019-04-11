@@ -1,7 +1,18 @@
 <?php
-  session_start();
- ?>
+session_start();
 
+   // restrict access through directURL
+
+   if(!isset($_SESSION['userid'])){
+
+     // header('Location: /index.php');
+     // exit();
+   }
+   else{
+     header('Location: PHP/Pages/dashboard.php');
+     exit();
+   }
+ ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +33,17 @@
 <header class="page-header">
   <nav class="navbar navbar-expand-xl navbar-dark bg-info mb-5">
     <div class= "container">
-      <a class="navbar-brand " href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
+
+      <?php
+          if(isset($_SESSION['userid'])){
+            echo '
+      <a class="navbar-brand " href="PHP/Pages/dashboard.php" ><h1 class="h2">Training And Placement Cell</h1></a>';
+    }
+      else{
+        echo '
+  <a class="navbar-brand " href="#" ><h1 class="h2">Training And Placement Cell</h1></a>';
+      }
+      ?>
 
       <?php
           if(isset($_SESSION['userid'])){
@@ -36,8 +57,6 @@
                   </form>';
           }
        ?>
-
-
 
     </div>
   </nav>
