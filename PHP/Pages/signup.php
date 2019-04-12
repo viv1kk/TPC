@@ -5,13 +5,12 @@
   <main>
 
 <!-- Signup-->
-
-    <div class="container-fluid row justify-content-center">
+    <div class="container-fluid row justify-content-center" style="margin:0 auto;">
       <div class="col-md-3 order-md-1">
 
         <div class="jumbotron">
           <form class="form-signup" action="../../includes/signup.inc.php" method="post">
-            <h2 class="h5 mt-3 mb-3 font-weight-normal text-muted">Please Sign-up</h2>
+            <h2 class="h4 mt-3 mb-4 font-weight-normal text-muted">Please Sign-up</h2>
 
             <label for="inputUsername" class="sr-only">Username</label>
             <input type="username" name="inputUsername" class="form-control mb-3" placeholder="Username" required autofocus>

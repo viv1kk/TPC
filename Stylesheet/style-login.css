@@ -5,24 +5,14 @@ body {
 }
 
 body {
-  /* display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;*/
-   align-items: center;
-  /* padding-top: 40px; */
-  /* padding-bottom: 40px; */
-  /* background-color: #f4f4f4; */
+  align-items: center;
 }
 
 .text-center {
   width: 100%;
   position: absolute;;
   bottom:0;
-  /* max-width: 330px; */
-  /* padding: 15px; */
-  /* margin: auto; */
 }
-
 
 .form-signin .checkbox {
   font-weight: 400;
@@ -48,13 +38,13 @@ body {
   border-top-right-radius: 0;
 }
 
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
+a:hover {text-decoration: none}
+
 .footer {
   background-color:#31708f;
-}
-
-.footer > .container {
-  /* padding-right: 15px;
-  padding-left: 15px; */
 }
 
 

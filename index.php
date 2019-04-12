@@ -6,13 +6,14 @@
   <main>
 
 <!-- LOGIN -->
-
-    <div class="container-fluid row justify-content-center">
+<br>
+<br>
+    <div class="container-fluid row justify-content-center" style="margin:0 auto;">
       <div class="col-md-3 order-md-1">
 
         <div class="jumbotron">
           <form class="form-signin" action="includes/signin.inc.php" method="post">
-              <h2 class="h5 mt-5 mb-3 font-weight-normal text-muted">Please Sign-in</h2>
+              <h2 class="h4 mt-4 mb-4 font-weight-normal text-muted">Please Sign-in</h2>
 
             <label for="uidormail" class="sr-only">Username or E-mail</label>
             <input type="username"name="uidormail" class="form-control mb-3" placeholder="username or email" required autofocus>

@@ -4,7 +4,7 @@
 
 <main>
 
-  <div class="jumbotron mb-1">
+  <div class="jumbotron mb-0">
     <div class="container-fluid row justify-content-center">
       <div class="col-md-6 order-md-1">
         <h4 class="mb-3 h4">Add the Company:</h4>
@@ -46,6 +46,7 @@
       </div>
     </div>
   </div>
+  <div class="jumbotron ml-1"></div>
 </main>
 
 
