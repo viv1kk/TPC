@@ -29,7 +29,7 @@
 
 <body class="bg-light">
 
-<!-- <header class="header"> -->
+<header class="header">
   <nav class="navbar navbar-expand-xl navbar-dark bg-info mb-5">
     <div class= "container">
       <a class="navbar-brand " href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
@@ -51,4 +51,4 @@
   </div>
 </div>
 </nav>
-<!-- </header> -->
+</header>

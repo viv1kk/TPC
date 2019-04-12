@@ -12,7 +12,7 @@
          <form class="was-validated">
            <h4 class="d-flex justify-content-between align-items-center mb-4">
              <span class="text-muted text-center">Columns for the Table</span>
-             <span class="badge badge-primary badge-pill">3</span>
+             <span class="badge badge-primary badge-pill" id="columns">0</span>
            </h4>
 
            <ul class="mb-3">

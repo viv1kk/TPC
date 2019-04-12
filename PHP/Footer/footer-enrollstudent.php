@@ -13,6 +13,6 @@
 </main> -->
 
 
-<script type="text/javascript" src="../../Scripts/enrollstudent.js"></script>
+<script src="../../Scripts/enrollstudent.js"></script>
 </body>
 </html>
