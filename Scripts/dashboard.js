@@ -12,6 +12,10 @@ $('#dtBasicExample').DataTable({
 $('.dataTables_length').addClass('bs-select');
 });
 
+$('#dtBasicExample').dragableColumns();
+
+
+
 
 // Number Badge will increment as the user selects the Branches
 

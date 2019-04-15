@@ -22,9 +22,11 @@
 
   <!-- Custom styles for this template -->
   <link href="../../Stylesheet/dashboard.css" rel="stylesheet">
+  <link href="../../Stylesheet/dragndrop.table.columns.css" rel="stylesheet">
 
-  <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
+  <!-- <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="../../Libs/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="../../Libs/dragndrop.table.columns.min.js"></script> -->
 </head>
 
 <body class="bg-light">
