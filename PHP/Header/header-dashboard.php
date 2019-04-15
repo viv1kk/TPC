@@ -19,10 +19,10 @@
 
   <!-- Bootstrap core CSS -->
   <link href="../../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../Stylesheet/dragndrop.css" rel="stylesheet">
+  <link href="../../Stylesheet/dashboard.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../../Stylesheet/dashboard.css" rel="stylesheet">
-  <link href="../../Stylesheet/dragndrop.table.columns.css" rel="stylesheet">
 
   <!-- <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="../../Libs/jquery.dataTables.min.js"></script>
@@ -31,12 +31,12 @@
 
 <body class="bg-light">
 
-<header class="header">
+<header class="page-header">
   <nav class="navbar navbar-expand-xl navbar-dark bg-info mb-5">
     <div class= "container">
-      <a class="navbar-brand " href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
+      <a class="navbar-brand" href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
 
-    <div class="navbar navbar-collapse ">
+    <div class="navbar navbar-collapse">
       <ul class="navbar-nav mr-auto">
 
       <li class="nav-item">

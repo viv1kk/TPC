@@ -238,9 +238,9 @@
 
    <div class="jumbotron mb-2">
      <div class="container-fluid row justify-content-center">
-     <table id="dtBasicExample" class="table table-striped table-responsive table-bordered table-lg table-hover">
+     <!-- <table id="dtBasicExample" class="table table-striped table-responsive table-bordered table-lg table-hover"> -->
        <!-- bootstrap class  table-responsive can be added -->
-       <thead class="table table-dark width-100%">
+       <!-- <thead class="table table-dark width-100%">
          <tr class="dnd-moved">
            <th class="th-sm">Name
            </th>
@@ -306,7 +306,7 @@
            </th>
          </tr>
        </tfoot>
-   </table>
+   </table> -->
    </div>
    </div>
  </main>
