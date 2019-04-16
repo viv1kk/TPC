@@ -10,6 +10,8 @@ require "../Header/header-enrollstudent.php"
   <div class="col-md-6 order-md-1">
     <h4 class="mb-3 h4">Enroll a Student:</h4>
 
+    <form class="needs-validation" action="../../includes/enrollstudent.inc.php" method="post">
+
 
     <!-- first row -->
 
@@ -17,12 +19,12 @@ require "../Header/header-enrollstudent.php"
 
       <div class="col-md-6 mb-3">
         <label for="reg_no">Registration Number</label>
-        <input type="number" class="form-control" id="reg_no" placeholder="Registration Number" value="">
+        <input type="number" pattern="[0-9]{8,8}"class="form-control" placeholder="Registration Number"  name="reg_no" value="">
       </div>
 
       <div class="col-md-6 mb-3">
         <label for="roll_no">Roll Number</label>
-        <input type="number" class="form-control" id="roll_no" placeholder="Roll Number" value="">
+        <input  type="number" class="form-control" placeholder="Roll Number" name="roll_no" value="">
       </div>
     </div>
 
@@ -34,18 +36,14 @@ require "../Header/header-enrollstudent.php"
 
       <div class="col-md-6 mb-3">
         <label for="studentName">Student's name</label>
-        <input type="text" class="form-control" id="studentName" placeholder="Student's name" value="">
-        <!-- <div class="invalid-feedback">
-        Valid first name is required.
-      </div> -->
+        <input type="text" class="form-control" id="studentName" placeholder="Student's name" name="student_name" value="">
+
     </div>
 
     <div class="col-md-6 mb-3">
       <label for="fatherName">Father's name</label>
-      <input type="text" class="form-control" id="fatherName" placeholder="Father's name" value="">
-      <!-- <div class="invalid-feedback">
-      Valid last name is required.
-    </div> -->
+      <input type="text" class="form-control" id="fatherName" placeholder="Father's name" name="father_name" value="">
+
   </div>
 
   </div>
@@ -53,15 +51,13 @@ require "../Header/header-enrollstudent.php"
 
   <!-- third row -->
 
-
-  <form class="needs-validation" novalidate>
   <div class="row">
 
 
 
     <div class="col-md-6 mb-3">
       <label for="branch">Branch</label>
-      <select class="custom-select" id="branch">
+      <select class="custom-select" name="branch">
         <option value="cse">Computer Science And Engineering</option>
         <option value="it">Information Technology</option>
       </select>
@@ -69,7 +65,7 @@ require "../Header/header-enrollstudent.php"
 
     <div class="col-md-6 mb-3">
       <label for="shift">Shift</label>
-      <select class="custom-select" id="shift">
+      <select class="custom-select"  name="shift">
         <option value="shift_1">Shift I</option>
         <option value="shift_2">Shift II</option>
         <option value="shift_3">Other Institutes</option>
@@ -84,14 +80,14 @@ require "../Header/header-enrollstudent.php"
   <div class="row">
     <div class="col-md-6 mb-3">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="you@example.com">
+      <input type="email" class="form-control" placeholder="you@example.com" name="email">
       <div class="invalid-feedback">
         Please enter a valid email address for search updates.
       </div>
     </div>
     <div class="col-md-6 mb-3">
       <label for="mob_no">Contact Number</label>
-      <input type="number" class="form-control" id="mob_no" placeholder="Contact Number">
+      <input type="number" class="form-control" placeholder="Contact Number" name="contact_no">
       <div class="invalid-feedback">
         Please enter a valid mobile number.
       </div>
@@ -103,12 +99,12 @@ require "../Header/header-enrollstudent.php"
 
     <div class="col-md-6 mb-3">
       <label for="company">DOB</label>
-      <input type="date" class="form-control" id="email">
+      <input type="date" class="form-control" name="dob">
     </div>
 
     <div class="col-md-6 mb-3">
       <label for="company">Company</label>
-      <select class="custom-select" id="company">
+      <select class="custom-select" name="company">
         <option value="com1">xyz</option>
         <option value="com2">zxy</option>
         <option value="com3">yzx</option>
@@ -119,28 +115,13 @@ require "../Header/header-enrollstudent.php"
 
   <div class="mb-3">
     <label for="address">Address</label>
-    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-    <!-- <div class="invalid-feedback">
-    Please enter the address.
-  </div> -->
-  </div>
-
-
-  <!-- fifth row -->
-
-
-  <div class="mb-3">
-  <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+    <input type="text" class="form-control" name="address" placeholder="1234 Main St">
   </div>
 
 
   <hr class="mb-4">
 
-
-  <!-- ninth row -->
-
-  <button class="btn btn-primary btn-lg btn-block" type="submit">Enroll</button>
+  <button class="btn btn-primary btn-lg btn-block" name="enroll-submit" type="submit">Enroll</button>
   </form>
   </div>
   </div>

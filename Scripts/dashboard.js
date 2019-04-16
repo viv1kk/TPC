@@ -1,13 +1,10 @@
 // Table Spacifications
 
-
-//
 document.addEventListener("DOMContentLoaded", function(event) {
   // Number Badge will increment as the user selects the Branches
 
   let checkboxColumn = document.querySelectorAll('.custom-control-input');
 
-  // console.log(checkboxColumn.length);
   let increment = 0;
 
   for(let i = 0; i < checkboxColumn.length; i++){
@@ -18,16 +15,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       else
       increment--;
       document.getElementById('columns').innerHTML = parseInt(increment);
-      // console.log(i,increment);
     });
   }
 
 
-
-
   let checkboxValues = [];
-
-
 
   document.querySelector('.needs-validation').addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -47,8 +39,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-
-
   function getCheckboxValues(){
     checkboxValues.length = 0;
     for(let i = 0; i < checkboxColumn.length; i++){
@@ -61,14 +51,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
 
-
-
-
-
   // DYNAMIC TABLE
-
-
-
 
   function generate_table() {
 
@@ -148,9 +131,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     tblFoot.appendChild(row);
 
-
-
-
     // put the <tbody> in the <table>
     tbl.appendChild(tblHead);
     tbl.appendChild(tblBody);
@@ -162,8 +142,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
     // DATA TABLES
-    //
-    // if(document.querySelector('.jumbotron').style.display == "none"){
+
     $('#dtBasicExample').DataTable({
       "paging":false,
       "ordering":true,
@@ -171,16 +150,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
       "searching":false,
     });
     $('.dataTables_length').addClass('bs-select');
-    // }
+
     // dragableColumns
     $('#dtBasicExample').dragableColumns();
 }
-
-
-
-
-
-
 
 
 

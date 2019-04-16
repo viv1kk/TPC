@@ -13,7 +13,7 @@ if(isset($_POST['signup-submit'])){
     exit();
   }
   else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    header("Location: ../PHP/Pages/signup.php?error=invalidEmails&inputUsername=".$usernm);
+    header("Location: ../PHP/Pages/signup.php?error=invalidEmail&inputUsername=".$usernm);
     exit();
   }
   else if(!preg_match("/^[a-zA-Z0-9]*$/", $usernm)){
