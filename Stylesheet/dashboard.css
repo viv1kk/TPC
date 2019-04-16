@@ -24,10 +24,24 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   bottom: .5em;
   }
 
+  .jumbotron{
+    display: none;
+  }
+.jumbotron {
+  width: 100%;
+
+}
+.jumbotron table {
+  max-width:1400px;
+  width: 100% !important;
+ }
+
+
+
 
 table {
       margin: auto;
-      overflow-x: auto;
+      /* overflow-x: auto; */
       /* display: flow-root; */
 
       table-layout:auto;
@@ -57,11 +71,6 @@ a:hover {text-decoration: none}
 .footer {
   background-color:#31708f;
 }
-
-/* .footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-} */
 
 code {
   font-size: 80%;

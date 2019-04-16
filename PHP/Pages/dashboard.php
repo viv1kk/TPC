@@ -18,67 +18,67 @@
            <ul class="mb-3">
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_reg_no">
+                 <input type="checkbox" class="custom-control-input" id="col_reg_no" value="Registration Number" checked>
                  <label class="custom-control-label" for="col_reg_no">Registration Number</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_roll_no">
+                 <input type="checkbox" class="custom-control-input" id="col_roll_no" value="Roll Number">
                  <label class="custom-control-label" for="col_roll_no">Roll Number</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_std_name">
+                 <input type="checkbox" class="custom-control-input" id="col_std_name" value="Student's Name">
                  <label class="custom-control-label" for="col_std_name">Student's Name</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_fat_name">
+                 <input type="checkbox" class="custom-control-input" id="col_fat_name" value="Father's Name">
                  <label class="custom-control-label" for="col_fat_name">Father's Name</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_Branch">
+                 <input type="checkbox" class="custom-control-input" id="col_Branch" value="Branch">
                  <label class="custom-control-label" for="col_Branch">Branch</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_shift">
+                 <input type="checkbox" class="custom-control-input" id="col_shift" value="Shift">
                  <label class="custom-control-label" for="col_shift">Shift</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_email">
+                 <input type="checkbox" class="custom-control-input" id="col_email" value="Email">
                  <label class="custom-control-label" for="col_email">Email</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_cont_no">
+                 <input type="checkbox" class="custom-control-input" id="col_cont_no" value="Contact Number">
                  <label class="custom-control-label" for="col_cont_no">Contact Number</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_dob">
+                 <input type="checkbox" class="custom-control-input" id="col_dob" value="DOB">
                  <label class="custom-control-label" for="col_dob">DOB</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_comp">
+                 <input type="checkbox" class="custom-control-input" id="col_comp" value="Company">
                  <label class="custom-control-label" for="col_comp">Company</label>
                </div>
              </li>
              <li class="d-flex justify-content-between lh-condensed">
                <div class="custom-control custom-checkbox mb-3">
-                 <input type="checkbox" class="custom-control-input" id="col_addr">
+                 <input type="checkbox" class="custom-control-input" id="col_addr" value="Address">
                  <label class="custom-control-label" for="col_addr">Address</label>
                </div>
              </li>
@@ -138,7 +138,7 @@
      <!-- third row -->
 
 
-     <form class="needs-validation " novalidate>
+     <form class="needs-validation" novalidate>
        <div class="row">
 
 
