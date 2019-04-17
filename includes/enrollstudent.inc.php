@@ -25,9 +25,8 @@ if(isset($_POST['enroll-submit'])){
     exit();
   }
 
-
   else{
-    $sql = 'SELECT reg_no, roll_no FROM studentdb WHERE reg_no=?';
+    $sql = 'SELECT reg_no FROM studentdb WHERE reg_no=?';
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -46,7 +45,7 @@ if(isset($_POST['enroll-submit'])){
         exit();
       }
       else{
-        $sql = "SELECT roll_no FROM studentdb WHERE roll_no=?";
+        $sql = 'SELECT roll_no FROM studentdb WHERE roll_no=?';
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -66,7 +65,7 @@ if(isset($_POST['enroll-submit'])){
             exit();
           }
           else{
-            $sql = "SELECT email FROM studentdb WHERE email=?";
+            $sql = 'SELECT email FROM studentdb WHERE email=?';
             $stmt = mysqli_stmt_init($conn);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -86,7 +85,7 @@ if(isset($_POST['enroll-submit'])){
                 exit();
               }
               else{
-                $sql = "SELECT contact_no FROM studentdb WHERE contact_no=?";
+                $sql = 'SELECT contact_no FROM studentdb WHERE contact_no=?';
                 $stmt = mysqli_stmt_init($conn);
 
                 if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -106,7 +105,7 @@ if(isset($_POST['enroll-submit'])){
                     exit();
                   }
                   else{
-                    $sql = "INSERT INTO studentdb (reg_no, roll_no, student_name, father_name, branch, shift, email, contact_no, dob, company, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    $sql = 'INSERT INTO studentdb (reg_no, roll_no, student_name, father_name, branch, shift, email, contact_no, dob, company, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
                     $stmt = mysqli_stmt_init($conn);
 
                     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -132,6 +131,5 @@ if(isset($_POST['enroll-submit'])){
 
 else{
   header("Location: ../PHP/Pages/enrollstudent.php");
-  // echo'Hello';
   exit();
 }

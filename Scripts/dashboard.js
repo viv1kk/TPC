@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   let checkboxColumn = document.querySelectorAll('.custom-control-input');
 
-  let increment = 0;
+  let increment = 1;
 
   for(let i = 0; i < checkboxColumn.length; i++){
     checkboxColumn[i].addEventListener('change', ()=>{

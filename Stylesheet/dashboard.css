@@ -10,7 +10,6 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
     margin: 0;
 }
 
-
   table.dataTable thead .sorting:after,
   table.dataTable thead .sorting:before,
   table.dataTable thead .sorting_asc:after,
@@ -36,18 +35,10 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   width: 100% !important;
  }
 
-
-
-
 table {
       margin: auto;
-      /* overflow-x: auto; */
-      /* display: flow-root; */
-
       table-layout:auto;
-
       white-space: nowrap;
-
       border-radius: 5px;
       text-align: center;
   }
@@ -56,7 +47,7 @@ table {
   table thead tr:hover th {
  background-color: #343A40;
 }
-/* #343A40 */
+
 table tfoot tr:hover th {
 background-color: #343A40;
 }

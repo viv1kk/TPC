@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2019 at 01:08 AM
+-- Generation Time: Apr 17, 2019 at 11:55 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `loginsystemtpc`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `companydb`
+--
+
+CREATE TABLE `companydb` (
+  `company_ID` int(9) UNSIGNED NOT NULL,
+  `company_name` varchar(200) NOT NULL,
+  `company_email` tinytext,
+  `company_contact_number` bigint(10) UNSIGNED DEFAULT NULL,
+  `cse` tinyint(1) NOT NULL,
+  `it` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -68,6 +83,15 @@ INSERT INTO `users` (`userid`, `username`, `email`, `pwd`) VALUES
 --
 
 --
+-- Indexes for table `companydb`
+--
+ALTER TABLE `companydb`
+  ADD PRIMARY KEY (`company_ID`),
+  ADD UNIQUE KEY `company_name` (`company_name`),
+  ADD UNIQUE KEY `company_contact_number` (`company_contact_number`),
+  ADD UNIQUE KEY `company_email` (`company_email`(50));
+
+--
 -- Indexes for table `studentdb`
 --
 ALTER TABLE `studentdb`
@@ -86,10 +110,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `companydb`
+--
+ALTER TABLE `companydb`
+  MODIFY `company_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `studentdb`
 --
 ALTER TABLE `studentdb`
-  MODIFY `user_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `user_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
