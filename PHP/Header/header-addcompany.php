@@ -30,7 +30,7 @@
 
 <body class="bg-light">
 
-  <nav class="navbar navbar-expand-xl navbar-dark bg-info mb-1">
+  <nav class="navbar navbar-expand-xl navbar-dark mb-1">
     <div class= "container">
       <a class="navbar-brand " href="dashboard.php" ><h1 class="h2">Training And Placement Cell</h1></a>
       <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

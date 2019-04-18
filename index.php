@@ -11,7 +11,7 @@
     <div class="container-fluid row justify-content-center" style="margin:0 auto;">
       <div class="col-md-3 order-md-1">
 
-        <div class="jumbotron">
+        <div class="jumbotron shadow-lg p-6 mb-5 rounded">
           <form class="form-signin" action="includes/signin.inc.php" method="post">
               <h2 class="h4 mt-4 mb-4 font-weight-normal text-muted">Please Sign-in</h2>
 

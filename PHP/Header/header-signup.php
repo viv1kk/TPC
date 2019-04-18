@@ -20,7 +20,7 @@
 <body class="bg-light">
 
 <header class="page-header">
-  <nav class="navbar navbar-expand-xl navbar-dark bg-info mb-5">
+  <nav class="navbar navbar-expand-xl navbar-dark mb-5">
     <div class= "container">
       <a class="navbar-brand " href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
 
@@ -36,8 +36,6 @@
                   </form>';
           }
        ?>
-
-
 
     </div>
   </nav>

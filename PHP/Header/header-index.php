@@ -1,18 +1,14 @@
 <?php
 session_start();
-
    // restrict access through directURL
-
    if(!isset($_SESSION['userid'])){
-
-     // header('Location: /index.php');
-     // exit();
    }
    else{
      header('Location: PHP/Pages/dashboard.php');
      exit();
    }
  ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,15 +19,13 @@ session_start();
   <link rel="stylesheet" href="./Bootstrap/css/bootstrap.min.css">
 
   <!-- Bootstrap core CSS -->
-
-
   <!-- Custom styles for this template -->
   <link href="./Stylesheet/style-login.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
 <header class="page-header">
-  <nav class="navbar navbar-expand-xl navbar-dark bg-info mb-5">
+  <nav class="navbar navbar-expand-xl navbar-dark mb-5">
     <div class= "container">
 
       <?php

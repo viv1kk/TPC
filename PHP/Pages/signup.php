@@ -8,7 +8,7 @@
     <div class="container-fluid row justify-content-center" style="margin:0 auto;">
       <div class="col-md-3 order-md-1">
 
-        <div class="jumbotron">
+        <div class="jumbotron shadow-lg p-6 mb-5 rounded">
           <form class="form-signup" action="../../includes/signup.inc.php" method="post">
             <h2 class="h4 mt-3 mb-4 font-weight-normal text-muted">Please Sign-up</h2>
 
@@ -23,8 +23,9 @@
 
             <label for="repeatPassword" class="sr-only">Password</label>
             <input type="password" name="repeatPassword" class="form-control mb-3" placeholder="Repeat Password" required>
+
+            <button class="btn btn-lg btn-primary btn-block mt-5" name="signup-submit" type="submit">Sign Up</button>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" name="signup-submit" type="submit">Sign Up</button>
 
           </form>
         </div>

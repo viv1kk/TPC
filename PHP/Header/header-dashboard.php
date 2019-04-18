@@ -23,16 +23,12 @@
   <link href="../../Stylesheet/dashboard.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-
-  <!-- <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="../../Libs/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="../../Libs/dragndrop.table.columns.min.js"></script> -->
 </head>
 
 <body class="bg-light">
 
 <header class="page-header">
-  <nav class="navbar navbar-expand-xl navbar-dark bg-info mb-5">
+  <nav class="navbar navbar-expand-xl navbar-dark mb-5 ">
     <div class= "container">
       <a class="navbar-brand" href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
 
