@@ -1,4 +1,4 @@
-<footer class="footer mt-auto py-4 text-center">
+<footer class="footer mt-auto pt-3 pb-4 text-center">
   <div class="container">
     <span><a href="#" class="text-white">About us</a></span>
   </div>

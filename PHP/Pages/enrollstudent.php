@@ -4,12 +4,12 @@ require "../Header/header-enrollstudent.php"
 
 
 <main>
-
-  <div class="jumbotron mb-1">
+  <div class="jumbotron mb-1 row justify-content-center" id="wrapper">
     <div class="container-fluid row justify-content-center">
-      <div class="col-md-6 order-md-1">
-        <h4 class="mb-3 h4">Enroll a Student:</h4>
+  <div class="col-mb-6 order-md-1 justify-content-center">
+
         <form class="needs-validation" action="../../includes/enrollstudent.inc.php" method="post">
+          <h4 class="mb-3 h4">Enroll a Student:</h4>
 
           <!-- first row -->
 
@@ -43,7 +43,7 @@ require "../Header/header-enrollstudent.php"
           <!-- third row -->
 
           <div class="row">
-            
+
             <div class="col-md-6 mb-3">
               <label for="branch">Branch</label>
               <select class="custom-select" name="branch">

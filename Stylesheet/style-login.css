@@ -1,5 +1,7 @@
 body {
-  height: 100%;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
   font-family: Arial, Helvetica, sans-serif;
   line-height:1.6em
 }
@@ -15,8 +17,13 @@ body {
   inset 0 -1px 0 rgba(0,0,0,.1)
 }
 
+ #wrapper>.col >.jumbotron{
+  display: inline-block;
+  width:21.8rem;
+}
+
 .text-center {
-  width: 100%;
+  width: 100vw;
   position: absolute;;
   bottom:0;
 }

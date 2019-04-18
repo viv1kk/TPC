@@ -8,8 +8,8 @@
 <!-- LOGIN -->
 <br>
 <br>
-    <div class="container-fluid row justify-content-center" style="margin:0 auto;">
-      <div class="col-md-3 order-md-1">
+    <div class="container-fluid row justify-content-center" id= "wrapper" style="margin:0 auto;">
+      <div class="col order-md-1 row justify-content-center">
 
         <div class="jumbotron shadow-lg p-6 mb-5 rounded">
           <form class="form-signin" action="includes/signin.inc.php" method="post">

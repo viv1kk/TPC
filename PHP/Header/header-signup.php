@@ -22,7 +22,7 @@
 <header class="page-header">
   <nav class="navbar navbar-expand-xl navbar-dark mb-5">
     <div class= "container">
-      <a class="navbar-brand " href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
+      <a class="navbar-brand" href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
 
       <?php
           if(isset($_SESSION['userid'])){

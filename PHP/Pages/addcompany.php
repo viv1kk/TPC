@@ -3,9 +3,9 @@ require "../Header/header-addcompany.php"
 ?>
 
 <main>
-  <div class="jumbotron mb-0">
+  <div class="jumbotron mb-0 ">
     <div class="container-fluid row justify-content-center">
-      <div class="col-md-6 order-md-3">
+      <div class="col-md-6 order-md-3 justify-content-center">
         <form class="needs-validation" action="../../includes/addcompany.inc.php" method="post">
           <h4 class="mb-3 h4">Add the Company:</h4>
 
