@@ -90,7 +90,7 @@ if(isset($_POST['company-submit'])){
               $compContResult = mysqli_stmt_num_rows($compContNo);
 
               if($compContResult > 0){
-                header("Location: ../PHP/Pages/enrollstudent.php?error=company_contact_number_already_exists");
+                header("Location: ../PHP/Pages/addcompany.php?error=company_contact_number_already_exists");
                 exit();
               }
               else{

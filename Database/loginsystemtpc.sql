@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2019 at 11:55 PM
+-- Generation Time: Apr 18, 2019 at 09:09 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -36,6 +36,15 @@ CREATE TABLE `companydb` (
   `cse` tinyint(1) NOT NULL,
   `it` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `companydb`
+--
+
+INSERT INTO `companydb` (`company_ID`, `company_name`, `company_email`, `company_contact_number`, `cse`, `it`) VALUES
+(1, 'GOOGLE INC', 'hire@google.com', 1234567890, 1, 0),
+(2, 'WQEQ', 'vivekkohli935@gmail.com', 2134567543, 1, 0),
+(3, 'APPLE INC', 'hire@apple.com', 2112112212, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -113,13 +122,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `companydb`
 --
 ALTER TABLE `companydb`
-  MODIFY `company_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `company_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `studentdb`
 --
 ALTER TABLE `studentdb`
-  MODIFY `user_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

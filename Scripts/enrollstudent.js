@@ -9,6 +9,40 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   });
 
+
+
+
+
+  //AJAX for getting company Names
+
+// ON LOAD EVENT
+  let branch = $("#branch_select").val();
+  // console.log(branch);
+  $.post("../../includes/Dashboard/selectoption.inc.php",{
+      branchNameEn: branch
+  },(data, status)=>{
+    $("#company_select").html(data);
+      console.log(data);
+  });
+
+  //ON CHANGE EVENT
+
+  $("#branch_select").change(()=>{
+    let branch = $("#branch_select").val();
+    // console.log(branch);
+    $.post("../../includes/Dashboard/selectoption.inc.php",{
+        branchNameEn: branch
+    },(data, status)=>{
+      $("#company_select").html(data);
+        console.log(data);
+    });
+  });
+
+
+
+
+
+
   let regNo = document.getElementsByName('reg_no')[0];
   regNo.addEventListener('input',()=>{
     if (regNo.name == "reg_no" && regNo.value.length != 8 && !regNo.value.length == 0){

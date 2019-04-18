@@ -19,6 +19,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
 
+
+//AJAX for getting company Names
+
+// ON LOAD EVENT
+let branch = $("#branch").val();
+$.post("../../includes/Dashboard/selectoption.inc.php",{
+    branchName: branch
+},(data, status)=>{
+  $("#company").html(data);
+});
+
+// ON CHANGE EVENT
+$("#branch").change(()=>{
+  let branch = $("#branch").val();
+  $.post("../../includes/Dashboard/selectoption.inc.php",{
+      branchName: branch
+  },(data, status)=>{
+    $("#company").html(data);
+  });
+});
+
+
+
+
+
+
   let checkboxValues = [];
 
   document.querySelector('.needs-validation').addEventListener("submit",(e)=>{

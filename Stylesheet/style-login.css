@@ -17,6 +17,30 @@ body {
   inset 0 -1px 0 rgba(0,0,0,.1)
 }
 
+input[type="username"]:focus{
+  outline: none !important;
+  border:1px solid green;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+input[type="password"]:focus{
+  outline: none !important;
+  border:1px solid green;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+input[type="text"]:focus{
+  outline: none !important;
+  border:1px solid green;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+input[type="email"]:focus{
+  outline: none !important;
+  border:1px solid green;
+  box-shadow: 0 0 10px #719ECE;
+}
+
  #wrapper>.col >.jumbotron{
   display: inline-block;
   width:21.8rem;

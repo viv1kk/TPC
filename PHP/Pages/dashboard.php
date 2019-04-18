@@ -1,5 +1,5 @@
 <?php
-require "../Header/header-dashboard.php"
+require "../Header/header-dashboard.php";
 ?>
 
 <main>
@@ -123,7 +123,7 @@ require "../Header/header-dashboard.php"
 
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="branch">Branch</label>
+              <label for="branch">Branch</label><br>
               <select class="custom-select" id="branch">
                 <option value="all_branch">All branches</option>
                 <option value="cse">Computer Science And Engineering</option>
@@ -169,10 +169,15 @@ require "../Header/header-dashboard.php"
 
             <div class="col-md-6 mb-3">
               <label for="company">Company</label>
-              <select class="custom-select" id="company">
-                <option value="com1">xyz</option>
+              <select class="custom-select" id="company" placeholder="No Company Available">
+                <!-- <option value="com1">xyz</option>
                 <option value="com2">zxy</option>
-                <option value="com3">yzx</option>
+                <option value="com3">yzx</option> -->
+                <?php
+                  require "../../includes/dbh.inc.php";
+                  require "../../includes/Dashboard/selectoption.inc.php";
+                  echo $options;
+                ?>
               </select>
             </div>
           </div>
@@ -198,76 +203,76 @@ require "../Header/header-dashboard.php"
   <div class="jumbotron mb-2">
     <div class="container-fluid row justify-content-center">
       <!-- <table id="dtBasicExample" class="table table-striped table-responsive table-bordered table-lg table-hover"> -->
-        <!-- bootstrap class  table-responsive can be added -->
-        <!-- <thead class="table table-dark width-100%">
-          <tr class="dnd-moved">
-            <th class="th-sm">Name
-            </th>
-            <th class="th-sm">Position
-            </th>
-            <th class="th-sm">Office
-            </th>
-            <th class="th-sm">Age
-            </th>
-            <th class="th-sm">Start date
-            </th>
-            <th class="th-sm">Salary
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="dnd-moved">
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-            <td>$320,800</td>
-          </tr>
-          <tr class="dnd-moved">
-            <td>Garrett</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            <td>$170,750</td>
-          </tr>
-          <tr class="dnd-moved">
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>San Francisco</td>
-            <td>66</td>
-            <td>2009/01/12</td>
-            <td>$86,000</td>
-          </tr>
-          <tr class="dnd-moved">
-            <td>Colleen Hurst</td>
-            <td>Javascript Developer</td>
-            <td>San Francisco</td>
-            <td>39</td>
-            <td>2009/09/15</td>
-            <td>$205,500</td>
-          </tr>
-        </tbody>
-        <tfoot class="table table-dark">
-          <tr class="dnd-moved">
-            <th>Name
-            </th>
-            <th>Position
-            </th>
-            <th>Office
-            </th>
-            <th>Age
-            </th>
-            <th>Start date
-            </th>
-            <th>Salary
-            </th>
-          </tr>
-        </tfoot>
-      </table> -->
-    </div>
-  </div>
+      <!-- bootstrap class  table-responsive can be added -->
+      <!-- <thead class="table table-dark width-100%">
+      <tr class="dnd-moved">
+      <th class="th-sm">Name
+    </th>
+    <th class="th-sm">Position
+  </th>
+  <th class="th-sm">Office
+</th>
+<th class="th-sm">Age
+</th>
+<th class="th-sm">Start date
+</th>
+<th class="th-sm">Salary
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="dnd-moved">
+<td>Tiger Nixon</td>
+<td>System Architect</td>
+<td>Edinburgh</td>
+<td>61</td>
+<td>2011/04/25</td>
+<td>$320,800</td>
+</tr>
+<tr class="dnd-moved">
+<td>Garrett</td>
+<td>Accountant</td>
+<td>Tokyo</td>
+<td>63</td>
+<td>2011/07/25</td>
+<td>$170,750</td>
+</tr>
+<tr class="dnd-moved">
+<td>Ashton Cox</td>
+<td>Junior Technical Author</td>
+<td>San Francisco</td>
+<td>66</td>
+<td>2009/01/12</td>
+<td>$86,000</td>
+</tr>
+<tr class="dnd-moved">
+<td>Colleen Hurst</td>
+<td>Javascript Developer</td>
+<td>San Francisco</td>
+<td>39</td>
+<td>2009/09/15</td>
+<td>$205,500</td>
+</tr>
+</tbody>
+<tfoot class="table table-dark">
+<tr class="dnd-moved">
+<th>Name
+</th>
+<th>Position
+</th>
+<th>Office
+</th>
+<th>Age
+</th>
+<th>Start date
+</th>
+<th>Salary
+</th>
+</tr>
+</tfoot>
+</table> -->
+</div>
+</div>
 </main>
 
 <?php

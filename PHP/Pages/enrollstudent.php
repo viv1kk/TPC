@@ -46,7 +46,7 @@ require "../Header/header-enrollstudent.php"
 
             <div class="col-md-6 mb-3">
               <label for="branch">Branch</label>
-              <select class="custom-select" name="branch">
+              <select class="custom-select" name="branch" id="branch_select">
                 <option value="cse">Computer Science And Engineering</option>
                 <option value="it">Information Technology</option>
               </select>
@@ -83,10 +83,15 @@ require "../Header/header-enrollstudent.php"
 
             <div class="col-md-6 mb-3">
               <label for="company">Company</label>
-              <select class="custom-select" name="company">
-                <option value="com1">xyz</option>
+              <select class="custom-select" name="company" id="company_select">
+                <!-- <option value="com1">xyz</option>
                 <option value="com2">zxy</option>
-                <option value="com3">yzx</option>
+                <option value="com3">yzx</option> -->
+                <?php
+                  require "../../includes/dbh.inc.php";
+                  require "../../includes/Dashboard/selectoption.inc.php";
+                  echo $options;
+                ?>
               </select>
             </div>
           </div>
