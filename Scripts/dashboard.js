@@ -44,24 +44,24 @@ $("#branch").change(()=>{
 
 
 
-
-  let checkboxValues = [];
-
-  document.querySelector('.needs-validation').addEventListener("submit",(e)=>{
-    e.preventDefault();
-
-    $('#dtBasicExample').DataTable().destroy('#dtBasicExample');
-    getCheckboxValues();
-
-    if(checkboxValues.length > 0)
-    generate_table();
-    else
-    console.log("No Column Selected");
-
-    jumbo = document.querySelector('.jumbotron');
-    jumbo.style.display = 'block';
-
-  });
+  // 
+  // let checkboxValues = [];
+  //
+  // document.querySelector('.needs-validation').addEventListener("submit",(e)=>{
+  //   e.preventDefault();
+  //
+  //   $('#dtBasicExample').DataTable().destroy('#dtBasicExample');
+  //
+  //   getCheckboxValues();
+  //   if(checkboxValues.length > 0)
+  //   generate_table();
+  //   else
+  //   console.log("No Column Selected");
+  //
+  //   jumbo = document.querySelector('.jumbotron');
+  //   jumbo.style.display = 'block';
+  //
+  // });
 
 
 

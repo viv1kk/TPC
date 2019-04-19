@@ -7,7 +7,7 @@ require "../Header/header-addcompany.php"
     <div class="container-fluid row justify-content-center">
       <div class="col-md-6 order-md-3 justify-content-center">
         <form class="needs-validation" action="../../includes/addcompany.inc.php" method="post">
-          <h4 class="mb-3 h4">Add the Company:</h4>
+          <h4 class="mb-3 h4 text-muted">Add the Company</h4>
 
           <div class="mb-3">
             <label for="comp_name">Name of the Company</label>

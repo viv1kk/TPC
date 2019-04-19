@@ -15,11 +15,14 @@ if(isset($_POST['branchName'])){
       while($row = mysqli_fetch_assoc($result)){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
+      
+      $options .= "<option value = 'All Companies'>All Companies</option>";
     }
     else{
-      $options = "<option value='none' selected disabled>No company Available for CSE</option>";
+      $options = "<option value='none' selected disabled>NONE Available for CSE</option>";
     }
     echo $options;
+    exit();
   }
 
   else if($branch == 'it'){
@@ -31,11 +34,14 @@ if(isset($_POST['branchName'])){
       while($row = mysqli_fetch_assoc($result)){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
+
+      $options .= "<option value = 'All Companies'>All Companies</option>";
     }
     else{
-      $options = "<option value='none' selected disabled>No company Available for IT</option>";
+      $options = "<option value='none' selected disabled>NONE Available for IT</option>";
     }
     echo $options;
+    exit();
   }
 
   else if($branch == 'all_branch'){
@@ -47,12 +53,17 @@ if(isset($_POST['branchName'])){
       while($row = mysqli_fetch_assoc($result)){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
+      $options .= "<option value = 'All Companies'>All Companies</option>";
     }
     echo $options;
+    exit();
   }
   else{
-    $options = "<option value='none' selected disabled>No company Available</option>";
+    $options = "<option value='none' selected disabled>NONE Available</option>";
+    echo $options;
+    exit();
   }
+  exit();
 }
 
 
@@ -67,14 +78,18 @@ if(isset($_POST['branchNameEn'])){
     $result = mysqli_query($conn, $sql) or die("Connection Failed: ".mysqli_connect_error());
 
     if(mysqli_num_rows($result) > 0){
+
       while($row = mysqli_fetch_assoc($result)){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
+
+      $options .= "<option value = 'none'>NONE</option>";
     }
     else{
-      $options = "<option value='none' selected disabled>No company Available for CSE</option>";
+      $options = "<option value='none' selected disabled>NONE Available for CSE</option>";
     }
     echo $options;
+    exit();
   }
 
   else if($branch == 'it'){
@@ -86,10 +101,13 @@ if(isset($_POST['branchNameEn'])){
       while($row = mysqli_fetch_assoc($result)){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
+
+      $options .= "<option value = 'none'>NONE</option>";
     }
     else{
-      $options = "<option value='none' selected disabled>No company Available for IT</option>";
+      $options = "<option value='none' selected disabled>NONE Available for IT</option>";
     }
     echo $options;
+    exit();
   }
 }

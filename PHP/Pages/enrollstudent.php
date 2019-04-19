@@ -8,8 +8,8 @@ require "../Header/header-enrollstudent.php"
     <div class="container-fluid row justify-content-center">
   <div class="col-mb-6 order-md-1 justify-content-center">
 
-        <form class="needs-validation" action="../../includes/enrollstudent.inc.php" method="post">
-          <h4 class="mb-3 h4">Enroll a Student:</h4>
+        <form class="needs-validation">
+          <h4 class="mb-3 h4 text-muted">Enroll a Student</h4>
 
           <!-- first row -->
 
