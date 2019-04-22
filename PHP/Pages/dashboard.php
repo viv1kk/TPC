@@ -5,7 +5,7 @@ require "../Header/header-dashboard.php";
 <main>
   <div class="container">
 
-    <form class="needs-validation" action="../../includes/Dashboard/search.inc.php" method="POST">
+    <!-- <form class="needs-validation"> -->
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
 
@@ -19,67 +19,67 @@ require "../Header/header-dashboard.php";
           <ul class="mb-3">
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_reg_no" value="Registration Number" checked>
+                <input type="checkbox" class="custom-control-input is-valid" id="col_reg_no" value="reg_no" checked>
                 <label class="custom-control-label" for="col_reg_no">Registration Number</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_roll_no" value="Roll Number">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_roll_no" value="roll_no">
                 <label class="custom-control-label" for="col_roll_no">Roll Number</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_std_name" value="Student's Name">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_std_name" value="student_name">
                 <label class="custom-control-label" for="col_std_name">Student's Name</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_fat_name" value="Father's Name">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_fat_name" value="father_name">
                 <label class="custom-control-label" for="col_fat_name">Father's Name</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_Branch" value="Branch">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_Branch" value="branch">
                 <label class="custom-control-label" for="col_Branch">Branch</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_shift" value="Shift">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_shift" value="shift">
                 <label class="custom-control-label" for="col_shift">Shift</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_email" value="Email">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_email" value="email">
                 <label class="custom-control-label" for="col_email">Email</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_cont_no" value="Contact Number">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_cont_no" value="contact_no">
                 <label class="custom-control-label" for="col_cont_no">Contact Number</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_dob" value="DOB">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_dob" value="dob">
                 <label class="custom-control-label" for="col_dob">DOB</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_comp" value="Company">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_comp" value="company">
                 <label class="custom-control-label" for="col_comp">Company</label>
               </div>
             </li>
             <li class="d-flex justify-content-between lh-condensed">
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input is-valid" id="col_addr" value="Address">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_addr" value="address">
                 <label class="custom-control-label" for="col_addr">Address</label>
               </div>
             </li>
@@ -170,14 +170,11 @@ require "../Header/header-dashboard.php";
             <div class="col-md-6 mb-3">
               <label for="company">Company</label>
               <select class="custom-select" id="company" placeholder="No Company Available" name="companyName">
-                <!-- <option value="com1">xyz</option>
-                <option value="com2">zxy</option>
-                <option value="com3">yzx</option> -->
                 <?php
-                  require "../../includes/dbh.inc.php";
+                  // require "../../includes/dbh.inc.php";
                   require "../../includes/Dashboard/selectoption.inc.php";
                   echo $options;
-                ?>              
+                ?>
               </select>
             </div>
           </div>
@@ -191,17 +188,17 @@ require "../Header/header-dashboard.php";
 
           <!-- ninth row -->
 
-          <button class="btn btn-primary btn-lg btn-block" name="search-submit" type="submit">Search</button>
+          <button class="btn btn-primary btn-lg btn-block" id="search" name="search-submit" type="button">Search</button>
         </div>
       </div>
-    </form>
+    <!-- </form> -->
   </div>
   <hr class="m-4">
 
   <!-- Jumbotron needed to be hidden  -->
 
   <div class="jumbotron mb-2">
-    <div class="container-fluid row justify-content-center">
+    <div class="container-fluid row justify-content-center" id="container">
       <!-- <table id="dtBasicExample" class="table table-striped table-responsive table-bordered table-lg table-hover"> -->
       <!-- bootstrap class  table-responsive can be added -->
       <!-- <thead class="table table-dark width-100%">

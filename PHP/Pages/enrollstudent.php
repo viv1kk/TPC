@@ -8,7 +8,7 @@ require "../Header/header-enrollstudent.php"
     <div class="container-fluid row justify-content-center">
   <div class="col-mb-6 order-md-1 justify-content-center">
 
-        <form class="needs-validation">
+        <form class="needs-validation" action="../../includes/enrollstudent.inc.php" method="POST">
           <h4 class="mb-3 h4 text-muted">Enroll a Student</h4>
 
           <!-- first row -->
@@ -88,7 +88,7 @@ require "../Header/header-enrollstudent.php"
                 <option value="com2">zxy</option>
                 <option value="com3">yzx</option> -->
                 <?php
-                  require "../../includes/dbh.inc.php";
+                  // require "../../includes/dbh.inc.php";
                   require "../../includes/Dashboard/selectoption.inc.php";
                   echo $options;
                 ?>

@@ -42,27 +42,45 @@ $("#branch").change(()=>{
 
 
 
+  let checkboxValues = [];
 
 
-  // 
-  // let checkboxValues = [];
-  //
-  // document.querySelector('.needs-validation').addEventListener("submit",(e)=>{
-  //   e.preventDefault();
-  //
-  //   $('#dtBasicExample').DataTable().destroy('#dtBasicExample');
-  //
-  //   getCheckboxValues();
-  //   if(checkboxValues.length > 0)
-  //   generate_table();
-  //   else
-  //   console.log("No Column Selected");
-  //
-  //   jumbo = document.querySelector('.jumbotron');
-  //   jumbo.style.display = 'block';
-  //
-  // });
+  $('#search').unbind("click").click(()=>{
+    $.post("../../includes/Dashboard/search.inc.php",{
+        regNo: $('#reg_no').val(),
+        rollNo: $('#roll_no').val(),
+        studentName: $('#studentName').val(),
+        fatherName: $('#fatherName').val(),
+        branches: $('#branch').val(),
+        shifts: $('#shift').val(),
+        email: $('#mail').val(),
+        mobNo: $('#mob_no').val(),
+        dob: $('#dateofb').val(),
+        companyName: $('#company').val(),
+        address: $('#addr').val()
+    },(data)=>{
 
+
+        getCheckboxValues();
+
+
+        fetch("../../Scripts/results.json")
+        .then((resp)=>{
+            return resp.json();
+        })
+        .then((data)=>{
+          // console.log(data);
+          $('#dtBasicExample').DataTable().destroy('#dtBasicExample');
+          if(checkboxValues.length > 0){
+            generate_table(data);
+          }
+          else
+          console.log("No Column Selected");
+        });
+    // $('#container').html(data);
+    }
+  );
+  });
 
 
   function getCheckboxValues(){
@@ -70,19 +88,50 @@ $("#branch").change(()=>{
     for(let i = 0; i < checkboxColumn.length; i++){
       if(checkboxColumn[i].checked){
         let val = checkboxColumn[i].value;
+        let name = checkboxColumn[i].name;
         checkboxValues.push(val);
+        // checkboxValues[name] = val;
       }
     }
-    console.log(checkboxValues);
+    // console.log(checkboxValues);
   }
+
 
 
   // DYNAMIC TABLE
 
-  function generate_table() {
+  function generate_table(data) {
 
 
-    console.log("Table");
+// keys
+
+    // console.log(data);
+    let keys = [];
+    let obj, x;
+    obj = data[0];
+    for(x in obj){
+      keys.push(x);
+    }
+    // console.log(keys);
+
+// values
+
+    let values = [];
+    let objects, y;
+    objects = data;
+
+    for(var i = 0; i<data.length; i++){
+      var cells = [];
+      for(y in objects[i]){
+          cells.push(objects[i][y])
+        }
+        // console.log(cells);
+        values.push(cells);
+    }
+
+
+
+
     // get the reference for the body
     var body = document.querySelector(".container-fluid");
 
@@ -106,6 +155,7 @@ $("#branch").change(()=>{
       var cell = document.createElement("th");
       cell.setAttribute("class","th-sm");
 
+
       var cellText = document.createTextNode(checkboxValues[j]);
 
       cell.appendChild(cellText);
@@ -117,8 +167,12 @@ $("#branch").change(()=>{
 
     var tblBody = document.createElement("tbody");
 
+
     // creating all cells
-    for (var i = 0; i < 5 ; i++) {
+    for (var i = 0; i < data.length ; i++) {
+
+
+
       // creates a table row
       row = document.createElement("tr");
       row.setAttribute("class","dnd-moved");
@@ -127,15 +181,32 @@ $("#branch").change(()=>{
         // Create a <td> element and a text node, make the text
         // node the contents of the <td>, and put the <td> at
         // the end of the table row
-        cell = document.createElement("td");
-        cellText = document.createTextNode("cell in row "+i+", column "+j);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+
+
+        for(var k = 0; k < keys.length; k++){
+
+          //checkboxValues
+
+          // console.log(data);
+
+          if(checkboxValues[j] == keys[k]){
+
+          cell = document.createElement("td");
+          cellText = document.createTextNode(values[i][k]);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+
+
+        }
+      }
       }
 
       // add the row to the end of the table body
       tblBody.appendChild(row);
     }
+
+    // console.log();
+    console.log(values);
 
 
 
@@ -169,18 +240,17 @@ $("#branch").change(()=>{
 
     // DATA TABLES
 
-    $('#dtBasicExample').DataTable({
-      "paging":false,
-      "ordering":true,
-      "info":true,
-      "searching":false,
-    });
-    $('.dataTables_length').addClass('bs-select');
-
+    if(checkboxValues.length > 0)
+    {
+      $('#dtBasicExample').DataTable({
+        "paging":false,
+        "ordering":true,
+        "info":true,
+        "searching":false,
+      });
+      $('.dataTables_length').addClass('bs-select');
+    }
     // dragableColumns
     $('#dtBasicExample').dragableColumns();
-}
-
-
-
+  }
 });

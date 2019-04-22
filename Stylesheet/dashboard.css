@@ -63,7 +63,7 @@ input[type="date"]:focus{
   }
 
   .jumbotron{
-    display: none;
+    /* display: none; */
   }
 .jumbotron {
   width: 100%;
