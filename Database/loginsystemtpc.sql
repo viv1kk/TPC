@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2019 at 09:09 PM
+-- Generation Time: Apr 22, 2019 at 07:42 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -43,8 +43,7 @@ CREATE TABLE `companydb` (
 
 INSERT INTO `companydb` (`company_ID`, `company_name`, `company_email`, `company_contact_number`, `cse`, `it`) VALUES
 (1, 'GOOGLE INC', 'hire@google.com', 1234567890, 1, 0),
-(2, 'WQEQ', 'vivekkohli935@gmail.com', 2134567543, 1, 0),
-(3, 'APPLE INC', 'hire@apple.com', 2112112212, 0, 1);
+(2, 'APPLE INC', 'hire@apple.com', 9876543210, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -66,6 +65,14 @@ CREATE TABLE `studentdb` (
   `company` tinytext,
   `address` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `studentdb`
+--
+
+INSERT INTO `studentdb` (`user_ID`, `reg_no`, `roll_no`, `student_name`, `father_name`, `branch`, `shift`, `email`, `contact_no`, `dob`, `company`, `address`) VALUES
+(1, 16003776, 16014050028, 'VIVEK KOHLI', 'JEET SINGH', 'CSE', 'SHIFT_1', 'vivekkohli935@gmail.com', 8755283315, '1999-12-21', 'GOOGLE INC', 'Srinagar, Pauri Garhwal'),
+(2, 16003777, 16014050024, 'I DON\'T KNOW', 'BLAH BLAH', 'IT', 'SHIFT_1', 'idontknow@gmail.com', 0, '2000-12-12', 'APPLE INC', 'Srinagar, Pauri Garhwal');
 
 -- --------------------------------------------------------
 
@@ -122,13 +129,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `companydb`
 --
 ALTER TABLE `companydb`
-  MODIFY `company_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `company_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `studentdb`
 --
 ALTER TABLE `studentdb`
-  MODIFY `user_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `user_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

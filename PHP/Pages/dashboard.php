@@ -5,7 +5,7 @@ require "../Header/header-dashboard.php";
 <main>
   <div class="container">
 
-    <!-- <form class="needs-validation"> -->
+    <form class="needs-validation" method="post">
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
 
@@ -97,11 +97,17 @@ require "../Header/header-dashboard.php";
             <div class="col-md-6 mb-3">
               <label for="reg_no">Registration Number</label>
               <input type="number" class="form-control" id="reg_no" placeholder="Registration Number" name="regNo">
+              <div class="invalid-feedback">
+                Please enter a valid Registration Number for search updates.
+              </div>
             </div>
 
             <div class="col-md-6 mb-3">
               <label for="roll_no">Roll Number</label>
               <input type="number" class="form-control" id="roll_no" placeholder="Roll Number" name="rollNo">
+              <div class="invalid-feedback">
+                Please enter a valid Roll Number for search updates.
+              </div>
             </div>
           </div>
 
@@ -126,8 +132,8 @@ require "../Header/header-dashboard.php";
               <label for="branch">Branch</label><br>
               <select class="custom-select" id="branch" name="branches">
                 <option value="all_branch">All branches</option>
-                <option value="cse">Computer Science And Engineering</option>
-                <option value="it">Information Technology</option>
+                <option value="CSE">Computer Science And Engineering</option>
+                <option value="IT">Information Technology</option>
               </select>
             </div>
 
@@ -135,9 +141,9 @@ require "../Header/header-dashboard.php";
               <label for="shift">Shift</label>
               <select class="custom-select" id="shift" name="shifts">
                 <option valut="both_12">Both Shift I & Shift II</option>
-                <option value="shift_1">Shift I</option>
-                <option value="shift_2">Shift II</option>
-                <option value="shift_3">Other Institutes</option>
+                <option value="SHIFT_1">Shift I</option>
+                <option value="SHIFT_2">Shift II</option>
+                <option value="other">Other Institutes</option>
                 <option value="select_all">All</option>
               </select>
             </div>
@@ -149,14 +155,14 @@ require "../Header/header-dashboard.php";
               <label for="email">Email</label>
               <input type="email" class="form-control" id="mail" placeholder="student@example.com" name="email">
               <div class="invalid-feedback">
-                Please enter a valid email address for search updates.
+                Please enter a valid E-mail address for search updates.
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="mob_no">Contact Number</label>
               <input type="number" class="form-control" id="mob_no" placeholder="Contact Number" name="mobNo">
               <div class="invalid-feedback">
-                Please enter a valid mobile number.
+                Please enter a valid Mobile number.
               </div>
             </div>
           </div>
@@ -171,7 +177,6 @@ require "../Header/header-dashboard.php";
               <label for="company">Company</label>
               <select class="custom-select" id="company" placeholder="No Company Available" name="companyName">
                 <?php
-                  // require "../../includes/dbh.inc.php";
                   require "../../includes/Dashboard/selectoption.inc.php";
                   echo $options;
                 ?>
@@ -191,13 +196,14 @@ require "../Header/header-dashboard.php";
           <button class="btn btn-primary btn-lg btn-block" id="search" name="search-submit" type="button">Search</button>
         </div>
       </div>
-    <!-- </form> -->
+    </form>
   </div>
   <hr class="m-4">
 
   <!-- Jumbotron needed to be hidden  -->
 
-  <div class="jumbotron mb-2">
+  <p id="para" class="lead text-center"></p>
+  <div class="jumbotron mb-2" id="jumbot">
     <div class="container-fluid row justify-content-center" id="container">
       <!-- <table id="dtBasicExample" class="table table-striped table-responsive table-bordered table-lg table-hover"> -->
       <!-- bootstrap class  table-responsive can be added -->

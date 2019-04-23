@@ -1,5 +1,6 @@
 <?php
-if(isset($_POST['company-submit'])){
+
+if(isset($_POST['comp_name'], $_POST['email'], $_POST['contact_no'])){
 
   require 'dbh.inc.php';
 
@@ -8,6 +9,15 @@ if(isset($_POST['company-submit'])){
   $contactNumber = $_POST['contact_no'];
   $cse = 0;
   $it = 0;
+
+
+  if(empty($email)){
+    $email = NULL;
+  }
+  if(empty($contactNumber)){
+    $contactNumber = NULL;
+  }
+
 
   if(isset($_POST['branch_cse']) && $_POST['branch_cse'] == 'cse'){
     $cse = 1;
@@ -22,27 +32,120 @@ if(isset($_POST['company-submit'])){
     $it = 0;
   }
 
+
+  $errorEmpty = false;
+  $errorEmail = false;
+  $errorCont = false;
+  $errorCheckbox = false;
+
+
+  // Error Empty
+
+
   if(empty($companyName)){
-    header("Location: ../PHP/Pages/addcompany.php?error=company_name_cannot_be_empty");
-    exit();
-  }
-  else if(!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)){
-    header("Location: ../PHP/Pages/addcompany.php?error=invalidEmail");
-    exit();
-  }
-  else if($cse == 0 && $it == 0){
-    header("Location: ../PHP/Pages/addcompany.php?error=select_atleast_one_branch");
-    exit();
+
+    echo "<script>
+    company = document.getElementById('company');
+    company.setAttribute('class','form-control is-invalid');
+    </script>";
+
+    $errorEmpty = true;
   }
   else{
-    $sql = 'SELECT company_name FROM companydb WHERE company_name=?';
+    echo "<script>
+    company = document.getElementById('company');
+    company.setAttribute('class','form-control');
+    </script>";
+
+    $errorEmpty = false;
+  }
+
+
+  //Error Email
+
+  if(!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)){
+    echo "<script>
+    email = document.getElementById('mail');
+    email.setAttribute('class','form-control is-invalid');
+    </script>";
+
+    $errorEmail = true;
+  }
+  else{
+
+    echo "<script>
+    email = document.getElementById('mail');
+    email.setAttribute('class','form-control is-invalid');
+    </script>";
+
+    $errorEmail = false;
+  }
+
+
+  // Error Checkbox
+
+  if($cse == 0 && $it == 0){
+
+    echo "<script>
+    para = document.getElementById('para');
+    para.innerHTML = 'Select atleast one Branch';
+    </script>";
+
+    $errorCheckbox = true;
+  }
+  else{
+    echo "<script>
+    para = document.getElementById('para');
+    para.innerHTML = '';
+    </script>";
+
+    $errorCheckbox = false;
+  }
+
+
+// Error Contact Number
+
+if(!empty($contactNumber) && strlen($contactNumber) != 10){
+
+echo "<script>
+mob_no = document.getElementById('mob_no');
+mob_no.setAttribute('class','form-control is-invalid');
+</script>";
+
+$errorCont = true;
+}
+else{
+
+  echo "<script>
+  mob_no = document.getElementById('mob_no');
+  mob_no.setAttribute('class','form-control is-invalid');
+  </script>";
+
+  $errorCont = false;
+}
+
+
+
+if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
+  $sql = 'SELECT company_name FROM companydb WHERE company_name=?';
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
-      header("Location: ../PHP/Pages/addcompany.php?error=sqlerror");
+
+      echo "<script>
+      para = document.getElementById('para');
+      para.innerHTML = 'SQL Error';
+      </script>";
+
       exit();
     }
     else{
+
+      echo "<script>
+      para = document.getElementById('para');
+      para.innerHTML = '';
+      </script>";
+
       $comp = $stmt;
       mysqli_stmt_bind_param($comp,"s",$companyName);
       mysqli_stmt_execute($comp);
@@ -50,18 +153,39 @@ if(isset($_POST['company-submit'])){
 
       $compResult = mysqli_stmt_num_rows($comp);
       if($compResult > 0){
-        header("Location: ../PHP/Pages/addcompany.php?error=company_name_already_exists");
+
+        echo "<script>
+        para = document.getElementById('para');
+        para.innerHTML = 'Company with this name already exists';
+        </script>";
+
         exit();
       }
       else{
+
+        echo "<script>
+        para = document.getElementById('para');
+        para.innerHTML = '';
+        </script>";
+
         $sql = 'SELECT company_email FROM companydb WHERE company_email=?';
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
-          header("Location: ../PHP/Pages/addcompany.php?error=sqlerror");
+
+          echo "<script>
+          para = document.getElementById('para');
+          para.innerHTML = 'SQL Error';
+          </script>";
           exit();
         }
         else{
+
+          echo "<script>
+          para = document.getElementById('para');
+          para.innerHTML = '';
+          </script>";
+
           $compName = $stmt;
           mysqli_stmt_bind_param($compName, "s", $email);
           mysqli_stmt_execute($compName);
@@ -70,15 +194,30 @@ if(isset($_POST['company-submit'])){
           $compNameResult = mysqli_stmt_num_rows($compName);
 
           if($compNameResult > 0){
-            header("Location: ../PHP/Pages/addcompany.php?error=company_email_already_exists");
+
+            echo "<script>
+            para = document.getElementById('para');
+            para.innerHTML = 'Company E-mail already exists';
+            </script>";
+
             exit();
           }
           else{
+
+            echo "<script>
+            para = document.getElementById('para');
+            para.innerHTML = '';
+            </script>";
+
             $sql = 'SELECT company_contact_number FROM companydb WHERE company_contact_number=?';
             $stmt = mysqli_stmt_init($conn);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
-              header("Location: ../PHP/Pages/addcompany.php?error=sqlerror");
+
+              echo "<script>
+              para = document.getElementById('para');
+              para.innerHTML = 'SQL Error';
+              </script>";
               exit();
             }
             else{
@@ -90,21 +229,43 @@ if(isset($_POST['company-submit'])){
               $compContResult = mysqli_stmt_num_rows($compContNo);
 
               if($compContResult > 0){
-                header("Location: ../PHP/Pages/addcompany.php?error=company_contact_number_already_exists");
+
+                echo "<script>
+                para = document.getElementById('para');
+                para.innerHTML = 'Company with this contact number already exists';
+                </script>";
+
                 exit();
               }
               else{
+
+                echo "<script>
+                para = document.getElementById('para');
+                para.innerHTML = '';
+                </script>";
+
                 $sql = 'INSERT INTO companydb (company_name, company_email, company_contact_number, cse, it) VALUES (?, ?, ?, ?, ?)';
                 $stmt = mysqli_stmt_init($conn);
 
                 if(!mysqli_stmt_prepare($stmt, $sql)){
-                  header("Location: ../PHP/Pages/addcompany.php?error=sqlerror");
+
+                  echo "<script>
+                  para = document.getElementById('para');
+                  para.innerHTML = 'SQL Error';
+                  </script>";
+
                   exit();
                 }
                 else{
-                  mysqli_stmt_bind_param($stmt,"sssss", strtoupper($companyName), $email, $contactNumber, $cse, $it);
+
+                  $companyName = strtoupper($companyName);
+                  mysqli_stmt_bind_param($stmt,"sssss", $companyName, $email, $contactNumber, $cse, $it);
                   mysqli_stmt_execute($stmt);
-                  header("Location: ../PHP/Pages/addcompany.php?addcompany=success");
+                  echo "<script>
+                  para = document.getElementById('para');
+                  para.style.color = 'green';
+                  para.innerHTML = 'Success';
+                  </script>";
                   exit();
                 }
               }
@@ -116,6 +277,9 @@ if(isset($_POST['company-submit'])){
   }
 }
 else{
-  header("Location: ../PHP/Pages/addcompany.php");
+  echo "<script>
+  para = document.getElementById('para');
+  para.innerHTML = 'Whoops! Something went Wrong.';
+  </script>";
   exit();
 }

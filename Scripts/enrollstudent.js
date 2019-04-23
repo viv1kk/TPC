@@ -34,44 +34,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
         branchNameEn: branch
     },(data, status)=>{
       $("#company_select").html(data);
-        console.log(data);
     });
   });
 
 
 
+  let para;
+  let email;
+  let regNo;
+  let rollNo;
+  let mob_No;
 
 
-
-  let regNo = document.getElementsByName('reg_no')[0];
-  regNo.addEventListener('input',()=>{
-    if (regNo.name == "reg_no" && regNo.value.length != 8 && !regNo.value.length == 0){
-      regNo.setCustomValidity('Registration Number must be of 8 digits e.g. 12345678');
-      console.log(regNo.value.length);
-    }else{
-      regNo.setCustomValidity('');
-    }
+  $('#enroll-submit').unbind("click").click(()=>{
+    $.post("../../includes/enrollstudent.inc.php",{
+      reg_no: $('#regNo').val(),
+      roll_no: $('#rollNo').val(),
+      student_name: $('#studentName').val(),
+      father_name: $('#fatherName').val(),
+      branch: $('#branch_select').val(),
+      shift: $('#shifts').val(),
+      email: $('#mail').val(),
+      contact_no: $('#mob_no').val(),
+      dob: $('#dateofb').val(),
+      company: $('#company_select').val(),
+      address: $('#addr').val()
+    },(data)=>{
+      $('#contain').html(data);
+      console.log(data);
+    });
   });
 
-  // Validation for Roll Number
-  let rollNo = document.getElementsByName('roll_no')[0];
-  rollNo.addEventListener('input',()=>{
-    if (rollNo.name == "roll_no" && rollNo.value.length != 11 && !rollNo.value.length == 0){
-      rollNo.setCustomValidity('Roll Number must be of 11 digits e.g. 12345678901');
-      console.log(rollNo.value.length);
-    }else{
-      rollNo.setCustomValidity('');
-    }
-  });
-
-  // Validation for Contact Number
-  let contactNo = document.getElementsByName('contact_no')[0];
-  contactNo.addEventListener('input',()=>{
-    if (contactNo.name == "contact_no" && contactNo.value.length != 10 && !contactNo.value.length == 0){
-      contactNo.setCustomValidity('Contact Number must be of 10 digits e.g. 1234567890');
-      console.log(contactNo.value.length);
-    }else{
-      contactNo.setCustomValidity('');
-    }
-  });
 });

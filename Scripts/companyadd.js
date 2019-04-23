@@ -22,12 +22,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
   }
 
-  let contactNo = document.querySelector('#mob_no');
-  contactNo.addEventListener('input',()=>{
-    if (contactNo.value.length != 10 && !contactNo.value.length == 0){
-      contactNo.setCustomValidity('Contact Number must be of 10 digits e.g. 1234567890');
-    }else{
-      contactNo.setCustomValidity('');
-    }
+
+  let para;
+  let email;
+  let company;
+  let mob_No;
+
+
+
+  $('#add-company').unbind("click").click(()=>{
+    $.post("../../includes/addcompany.inc.php",{
+      comp_name: $('#company').val(),
+      email: $('#mail').val(),
+      contact_no: $('#mob_no').val(),
+      branch_cse: $('#cse').val(),
+      branch_it: $('#it').val()
+    },(data)=>{
+      $('#contain').html(data);
+      console.log(data);
+    });
   });
 });
