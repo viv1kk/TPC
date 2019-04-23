@@ -85,8 +85,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         else
         console.log("No Column Selected");
       });
-      $('#container').html(data);
-    });
+      $('#contain').html(data);
+      console.log(data);
+  });
 });
 
 
@@ -101,7 +102,6 @@ function getCheckboxValues(){
     }
   }
 }
-
 
 
 // DYNAMIC TABLE
@@ -131,7 +131,6 @@ function generate_table(data) {
     }
     values.push(cells);
   }
-
 
 
 

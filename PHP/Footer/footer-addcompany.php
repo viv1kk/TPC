@@ -3,6 +3,8 @@
     <span><a href="#" class="text-white">About us</a></span>
   </div>
 </footer>
+<script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../Libs/jquery.dataTables.min.js"></script>
 <script src="../../Scripts/companyadd.js"></script>
 </body>
 </html>

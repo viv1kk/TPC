@@ -21,39 +21,39 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
 
 
-if(empty($registrationNumber)){
-  $registrationNumber = NULL;
-}
-if(empty($rollNumber)){
-  $rollNumber = NULL;
-}
-if(empty($studentName)){
-  $studentName = NULL;
-}
-if(empty($fatherName)){
-  $fatherName = NULL;
-}
-if(empty($branch)){
-  $branch = NULL;
-}
-if(empty($shift)){
-  $shift = NULL;
-}
-if(empty($email)){
-  $email = NULL;
-}
-if(empty($contactNumber)){
-  $contactNumber = NULL;
-}
-if(empty($dob)){
-  $dob = NULL;
-}
-if(empty($company) || $company == 'none'){
-  $company = NULL;
-}
-if(empty($address)){
-  $address = NULL;
-}
+  if(empty($registrationNumber)){
+    $registrationNumber = NULL;
+  }
+  if(empty($rollNumber)){
+    $rollNumber = NULL;
+  }
+  if(empty($studentName)){
+    $studentName = NULL;
+  }
+  if(empty($fatherName)){
+    $fatherName = NULL;
+  }
+  if(empty($branch)){
+    $branch = NULL;
+  }
+  if(empty($shift)){
+    $shift = NULL;
+  }
+  if(empty($email)){
+    $email = NULL;
+  }
+  if(empty($contactNumber)){
+    $contactNumber = NULL;
+  }
+  if(empty($dob)){
+    $dob = NULL;
+  }
+  if(empty($company) || $company == 'none'){
+    $company = NULL;
+  }
+  if(empty($address)){
+    $address = NULL;
+  }
 
 
 
@@ -62,7 +62,6 @@ if(empty($address)){
   $errorReg = false;
   $errorRoll = false;
   $errorCont = false;
-
 
 
   // Error Empty

@@ -5,7 +5,7 @@ require "../Header/header-dashboard.php";
 <main>
   <div class="container">
 
-    <form class="needs-validation" method="post">
+    <form class="needs-validation">
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
 
@@ -89,11 +89,15 @@ require "../Header/header-dashboard.php";
         <!-- information for search -->
 
         <div class="col-md-8 order-md-1">
-          <h4 class="mb-4 text-muted">Search for a Student</h4>
+          <!-- <h4 class="mb-4 text-muted">Search for a Student</h4> -->
 
           <!-- first row -->
 
-          <div class="row">
+
+        <h4 class="mt-1 text-muted">Search a particular student</h4>
+        <hr class="m-4">
+
+          <div class="row mt-4">
             <div class="col-md-6 mb-3">
               <label for="reg_no">Registration Number</label>
               <input type="number" class="form-control" id="reg_no" placeholder="Registration Number" name="regNo">
@@ -113,17 +117,27 @@ require "../Header/header-dashboard.php";
 
           <!-- second row -->
 
-          <div class="row">
+          <div class="row md-4">
             <div class="col-md-6 mb-3">
-              <label for="studentName">Student's name</label>
-              <input type="text" class="form-control" id="studentName" placeholder="Student's name" name="studentName">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="mail" placeholder="student@example.com" name="email">
+              <div class="invalid-feedback">
+                Please enter a valid E-mail address for search updates.
+              </div>
             </div>
-
             <div class="col-md-6 mb-3">
-              <label for="fatherName">Father's name</label>
-              <input type="text" class="form-control" id="fatherName" placeholder="Father's name" name="fatherName">
+              <label for="mob_no">Contact Number</label>
+              <input type="number" class="form-control" id="mob_no" placeholder="Contact Number" name="mobNo">
+              <div class="invalid-feedback">
+                Please enter a valid Mobile number.
+              </div>
             </div>
           </div>
+
+
+          <h4 class="mt-3 text-muted">Search multiple students</h4>
+
+          <hr class="m-4">
 
           <!-- third row -->
 
@@ -150,22 +164,20 @@ require "../Header/header-dashboard.php";
           </div>
 
           <!-- fourth row -->
+
+
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="mail" placeholder="student@example.com" name="email">
-              <div class="invalid-feedback">
-                Please enter a valid E-mail address for search updates.
-              </div>
+              <label for="studentName">Student's name</label>
+              <input type="text" class="form-control" id="studentName" placeholder="Student's name" name="studentName">
             </div>
+
             <div class="col-md-6 mb-3">
-              <label for="mob_no">Contact Number</label>
-              <input type="number" class="form-control" id="mob_no" placeholder="Contact Number" name="mobNo">
-              <div class="invalid-feedback">
-                Please enter a valid Mobile number.
-              </div>
+              <label for="fatherName">Father's name</label>
+              <input type="text" class="form-control" id="fatherName" placeholder="Father's name" name="fatherName">
             </div>
           </div>
+
 
           <div class="row">
             <div class="col-md-6 mb-3">
@@ -177,8 +189,8 @@ require "../Header/header-dashboard.php";
               <label for="company">Company</label>
               <select class="custom-select" id="company" placeholder="No Company Available" name="companyName">
                 <?php
-                  require "../../includes/Dashboard/selectoption.inc.php";
-                  echo $options;
+                require "../../includes/Dashboard/selectoption.inc.php";
+                echo $options;
                 ?>
               </select>
             </div>
@@ -204,78 +216,9 @@ require "../Header/header-dashboard.php";
 
   <p id="para" class="lead text-center"></p>
   <div class="jumbotron mb-2" id="jumbot">
-    <div class="container-fluid row justify-content-center" id="container">
-      <!-- <table id="dtBasicExample" class="table table-striped table-responsive table-bordered table-lg table-hover"> -->
-      <!-- bootstrap class  table-responsive can be added -->
-      <!-- <thead class="table table-dark width-100%">
-      <tr class="dnd-moved">
-      <th class="th-sm">Name
-    </th>
-    <th class="th-sm">Position
-  </th>
-  <th class="th-sm">Office
-</th>
-<th class="th-sm">Age
-</th>
-<th class="th-sm">Start date
-</th>
-<th class="th-sm">Salary
-</th>
-</tr>
-</thead>
-<tbody>
-<tr class="dnd-moved">
-<td>Tiger Nixon</td>
-<td>System Architect</td>
-<td>Edinburgh</td>
-<td>61</td>
-<td>2011/04/25</td>
-<td>$320,800</td>
-</tr>
-<tr class="dnd-moved">
-<td>Garrett</td>
-<td>Accountant</td>
-<td>Tokyo</td>
-<td>63</td>
-<td>2011/07/25</td>
-<td>$170,750</td>
-</tr>
-<tr class="dnd-moved">
-<td>Ashton Cox</td>
-<td>Junior Technical Author</td>
-<td>San Francisco</td>
-<td>66</td>
-<td>2009/01/12</td>
-<td>$86,000</td>
-</tr>
-<tr class="dnd-moved">
-<td>Colleen Hurst</td>
-<td>Javascript Developer</td>
-<td>San Francisco</td>
-<td>39</td>
-<td>2009/09/15</td>
-<td>$205,500</td>
-</tr>
-</tbody>
-<tfoot class="table table-dark">
-<tr class="dnd-moved">
-<th>Name
-</th>
-<th>Position
-</th>
-<th>Office
-</th>
-<th>Age
-</th>
-<th>Start date
-</th>
-<th>Salary
-</th>
-</tr>
-</tfoot>
-</table> -->
-</div>
-</div>
+    <div class="container-fluid row justify-content-center" id="contain">
+    </div>
+  </div>
 </main>
 
 <?php

@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
 
+let cse = true, it=false;
+
   let checkboxBranch = document.querySelectorAll('.custom-control-input');
+
   let increment = 1;
   for(let i = 0; i < checkboxBranch.length; i++){
     checkboxBranch[i].addEventListener('change', ()=>{
@@ -18,6 +21,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
       increment++;
       else
       increment--;
+
+      if(document.getElementById('branch_cse').checked){
+        cse = true;
+      }
+      else{
+        cse = false;
+      }
+
+      if(document.getElementById('branch_it').checked){
+        it = true;
+      }
+      else{
+        it = false;
+      }
+
       document.getElementById('branch').innerHTML = parseInt(increment);
     });
   }
@@ -30,13 +48,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
+
+
   $('#add-company').unbind("click").click(()=>{
     $.post("../../includes/addcompany.inc.php",{
       comp_name: $('#company').val(),
       email: $('#mail').val(),
       contact_no: $('#mob_no').val(),
-      branch_cse: $('#cse').val(),
-      branch_it: $('#it').val()
+      branch_cse: cse,
+      branch_it: it
     },(data)=>{
       $('#contain').html(data);
       console.log(data);

@@ -7,26 +7,18 @@ if(isset($_POST['comp_name'], $_POST['email'], $_POST['contact_no'])){
   $companyName = $_POST['comp_name'];
   $email = $_POST['email'];
   $contactNumber = $_POST['contact_no'];
-  $cse = 0;
+  $cse =  0;
   $it = 0;
 
 
-  if(empty($email)){
-    $email = NULL;
-  }
-  if(empty($contactNumber)){
-    $contactNumber = NULL;
-  }
-
-
-  if(isset($_POST['branch_cse']) && $_POST['branch_cse'] == 'cse'){
+  if(isset($_POST['branch_cse']) && $_POST['branch_cse'] == "true"){
     $cse = 1;
 
   }else{
     $cse = 0;
   }
 
-  if(isset($_POST['branch_it']) && $_POST['branch_it'] == 'it'){
+  if(isset($_POST['branch_it']) && $_POST['branch_it'] == "true"){
     $it = 1;
   }else{
     $it = 0;
@@ -75,7 +67,7 @@ if(isset($_POST['comp_name'], $_POST['email'], $_POST['contact_no'])){
 
     echo "<script>
     email = document.getElementById('mail');
-    email.setAttribute('class','form-control is-invalid');
+    email.setAttribute('class','form-control');
     </script>";
 
     $errorEmail = false;
@@ -118,7 +110,7 @@ else{
 
   echo "<script>
   mob_no = document.getElementById('mob_no');
-  mob_no.setAttribute('class','form-control is-invalid');
+  mob_no.setAttribute('class','form-control');
   </script>";
 
   $errorCont = false;
@@ -126,8 +118,19 @@ else{
 
 
 
+
+  if(empty($email)){
+    $email = NULL;
+  }
+  if(empty($contactNumber)){
+    $contactNumber = NULL;
+  }
+
+
+
+
 if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
-  $sql = 'SELECT company_name FROM companydb WHERE company_name=?';
+  $sql = 'SELECT company_name FROM companydb WHERE company_name=?;';
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){

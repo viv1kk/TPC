@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST['regNo'], $_POST['rollNo'], $_POST['studentName'], $_POST['fatherName'], $_POST['branches'], $_POST['shifts'],
 $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['address'])){
+
   require "../dbh.inc.php";
 
   $registrationNumber = $_POST['regNo'];
@@ -14,8 +15,8 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
   $dob = $_POST['dob'];
   $company = $_POST['companyName'];
   $address = $_POST['address'];
-  $sql = "";
 
+  $sql = "";
 
 
   $errorReg = false;
@@ -124,11 +125,14 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
   }
 
 
+
+
   if(!$errorReg && !$errorRoll && !$errorEmail && !$errorCont){
 
     echo "<script>
     document.getElementById('jumbot').style.display = 'flow-root';
     </script>";
+
 
     if($registrationNumber != "" ||
     $rollNumber != "" ||
@@ -142,46 +146,91 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
     $company != "" ||
     $address != ""){
 
-      if(!empty($reqistrationNumber) || !empty($rollNumber)){
-        $sql = "SELECT * FROM studentdb WHERE reg_no = '$registrationNumber' OR roll_no = '$rollNumber'";
+
+
+      if(empty($registrationNumber)){
+        $registrationNumber = NULL;
+      }
+      if(empty($rollNumber)){
+        $rollNumber = NULL;
+      }
+      // if(empty($studentName)){
+      //   $studentName = NULL;
+      // }
+      // if(empty($fatherName)){
+      //   $fatherName = NULL;
+      // }
+      if(empty($email)){
+        $email = NULL;
+      }
+      if(empty($contactNumber)){
+        $contactNumber = NULL;
+      }
+      // if(empty($dob)){
+      //   $dob = NULL;
+      // }
+      // if(empty($address)){
+      //   $address = NULL;
+      // }
+
+
+
+// SEARCH BY A Particular Student
+
+      if(!empty($reqistrationNumber) || !empty($rollNumber) || !empty($email) || !empty($contactNumber)){
+        $sql = "SELECT * FROM studentdb WHERE reg_no = '$registrationNumber' OR roll_no = '$rollNumber' OR email = '$email' OR contact_no = '$contactNumber';";
       }
 
-      else{
-        $sql = "SELECT * FROM studentdb WHERE
-        (branch = '$branch' OR
-          shift = '$shift' OR
-          company = '$company') AND
-          (reg_no = '$registrationNumber' OR
-            roll_no = '$rollNumber' OR
-            student_name = '$studentName' OR
-            father_name = '$fatherName' OR
-            email = '$email' OR
-            contact_no = '$contactNumber' OR
-            dob = '$dob' OR
-            address = '$address');";
-          }
+      // else{
+      //
+      // }
 
-          $result = mysqli_query($conn, $sql);
 
-          if(mysqli_num_rows($result) > 0){
-            $rows = array();
-            while($row = mysqli_fetch_assoc($result)){
-              $rows[] = $row;
-            }
+    //   else{
+    //     $sql = "SELECT * FROM studentdb WHERE
+    //     (branch = '$branch' OR
+    //       shift = '$shift' OR
+    //       company = '$company') AND
+    //       (reg_no = '$registrationNumber' OR
+    //         roll_no = '$rollNumber' OR
+    //         student_name = '$studentName' OR
+    //         father_name = '$fatherName' OR
+    //         email = '$email' OR
+    //         contact_no = '$contactNumber' OR
+    //         dob = '$dob' OR
+    //         address = '$address');";
+    //       }
 
-            unlink('../../Scripts/results.json');
-            $fp = fopen('../../Scripts/results.json', 'w');
-            fwrite($fp, json_encode($rows));
-            fclose($fp);
 
-          }
+
+      $result = mysqli_query($conn, $sql);
+
+
+      if(mysqli_num_rows($result) > 0){
+        $rows = array();
+        while($row = mysqli_fetch_assoc($result)){
+          $rows[] = $row;
         }
+
+        if(file_exists('../../Scripts/results.json')){
+          unlink('../../Scripts/results.json');
+        }
+        $fp = fopen('../../Scripts/results.json', 'w');
+        fwrite($fp, json_encode($rows));
+        fclose($fp);
+      }
+      else{
+        echo "<script>
+        document.getElementById('jumbot').style.display = 'none';
+        </script>";
       }
     }
+  }
+}
 
-    else{
-      echo "<script>
-        let para = document.getElementById('para');
-        para.innerHTML = 'Error: Something Went Wrong';
-      </script>";
-    }
+else{
+  echo "<script>
+  let para = document.getElementById('para');
+  para.innerHTML = 'Error: Something Went Wrong';
+  </script>";
+}

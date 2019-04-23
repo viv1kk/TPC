@@ -45,13 +45,13 @@ require "../Header/header-addcompany.php"
             <ul class="mb-3">
               <li class="d-flex justify-content-between lh-condensed">
                 <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input is-valid" value="cse" name="branch_cse" id="cse" checked>
+                  <input type="checkbox" class="custom-control-input is-valid" name="branch_cse" id="branch_cse" value="cse" checked>
                   <label class="custom-control-label" for="branch_cse">Computer Science And Engineering</label>
                 </div>
               </li>
               <li class="d-flex justify-content-between lh-condensed">
                 <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input is-valid" value="it" name="branch_it" id="it">
+                  <input type="checkbox" class="custom-control-input is-valid" name="branch_it" id="branch_it" value="it">
                   <label class="custom-control-label" for="branch_it">Information Technology</label>
                 </div>
               </li>
