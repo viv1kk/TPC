@@ -62,9 +62,9 @@ require "../Header/header-enrollstudent.php"
             <div class="col-md-6 mb-3">
               <label for="shift">Shift</label>
               <select class="custom-select" id="shifts" name="shift">
-                <option value="shift_1">Shift I</option>
-                <option value="shift_2">Shift II</option>
-                <option value="shift_3">Other Institutes</option>
+                <option value="SHIFT_1">Shift I</option>
+                <option value="SHIFT_2">Shift II</option>
+                <option value="OTHER">Other Institutes</option>
               </select>
             </div>
           </div>

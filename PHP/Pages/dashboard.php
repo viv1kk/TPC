@@ -145,7 +145,7 @@ require "../Header/header-dashboard.php";
             <div class="col-md-6 mb-3">
               <label for="branch">Branch</label><br>
               <select class="custom-select" id="branch" name="branches">
-                <option value="all_branch">All branches</option>
+                <option value="ALL_BRANCH">All branches</option>
                 <option value="CSE">Computer Science And Engineering</option>
                 <option value="IT">Information Technology</option>
               </select>
@@ -154,11 +154,11 @@ require "../Header/header-dashboard.php";
             <div class="col-md-6 mb-3">
               <label for="shift">Shift</label>
               <select class="custom-select" id="shift" name="shifts">
-                <option valut="both_12">Both Shift I & Shift II</option>
+                <option value="BOTH_12">Both Shift I & Shift II</option>
                 <option value="SHIFT_1">Shift I</option>
                 <option value="SHIFT_2">Shift II</option>
-                <option value="other">Other Institutes</option>
-                <option value="select_all">All</option>
+                <option value="OTHER">Other Institutes</option>
+                <option value="ALL">All</option>
               </select>
             </div>
           </div>

@@ -48,7 +48,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
   if(empty($dob)){
     $dob = NULL;
   }
-  if(empty($company) || $company == 'none'){
+  if(empty($company) || $company == 'NONE'){
     $company = NULL;
   }
   if(empty($address)){

@@ -6,6 +6,7 @@
 if(isset($_POST['branchName'])){
   require '../dbh.inc.php';
   $branch = $_POST['branchName'];
+  $options = "";
 
   if($branch == 'CSE'){
     $sql = "SELECT DISTINCT company_name FROM companydb WHERE cse = 1 ORDER BY company_name ASC";
@@ -16,10 +17,11 @@ if(isset($_POST['branchName'])){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
 
-      $options .= "<option value = 'All Companies'>All Companies</option>";
+      $options .= "<option value = 'ALL'>All</option>";
+      $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options = "<option value='none' selected disabled>NONE Available for CSE</option>";
+      $options .= "<option value='NONE' selected disabled>NONE Available for CSE</option>";
     }
     echo $options;
     exit();
@@ -35,16 +37,17 @@ if(isset($_POST['branchName'])){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
 
-      $options .= "<option value = 'All Companies'>All Companies</option>";
+      $options .= "<option value = 'ALL'>All</option>";
+      $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options = "<option value='none' selected disabled>NONE Available for IT</option>";
+      $options .= "<option value='NONE' selected disabled>NONE Available for IT</option>";
     }
     echo $options;
     exit();
   }
 
-  else if($branch == 'all_branch'){
+  else if($branch == 'ALL_BRANCH'){
     $sql = "SELECT DISTINCT company_name FROM companydb ORDER BY company_name ASC";
     $result = mysqli_query($conn, $sql) or die("Connection Failed: ".mysqli_connect_error());
     $branch = $_POST['branchName'];
@@ -53,13 +56,14 @@ if(isset($_POST['branchName'])){
       while($row = mysqli_fetch_assoc($result)){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
-      $options .= "<option value = 'All Companies'>All Companies</option>";
+      $options .= "<option value = 'ALL'>All</option>";
+      $options .= "<option value = 'NONE'>None</option>";
     }
     echo $options;
     exit();
   }
   else{
-    $options = "<option value='none' selected disabled>NONE Available</option>";
+    $options .= "<option value='NONE' selected disabled>NONE Available</option>";
     echo $options;
     exit();
   }
@@ -83,10 +87,10 @@ if(isset($_POST['branchNameEn'])){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
 
-      $options .= "<option value = 'none'>NONE</option>";
+      $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options = "<option value='none' selected disabled>NONE Available for CSE</option>";
+      $options .= "<option value='NONE' selected disabled>NONE Available for CSE</option>";
     }
     echo $options;
     exit();
@@ -102,10 +106,10 @@ if(isset($_POST['branchNameEn'])){
         $options .= "<option value='{$row['company_name']}'>{$row['company_name']}</option>/n";
       }
 
-      $options .= "<option value = 'none'>NONE</option>";
+      $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options = "<option value='none' selected disabled>NONE Available for IT</option>";
+      $options .= "<option value='NONE' selected disabled>NONE Available for IT</option>";
     }
     echo $options;
     exit();

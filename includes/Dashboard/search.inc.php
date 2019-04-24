@@ -125,14 +125,7 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
   }
 
 
-
-
   if(!$errorReg && !$errorRoll && !$errorEmail && !$errorCont){
-
-    echo "<script>
-    document.getElementById('jumbot').style.display = 'flow-root';
-    </script>";
-
 
     if($registrationNumber != "" ||
     $rollNumber != "" ||
@@ -147,75 +140,113 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
     $address != ""){
 
 
-
       if(empty($registrationNumber)){
         $registrationNumber = NULL;
       }
       if(empty($rollNumber)){
         $rollNumber = NULL;
       }
-      // if(empty($studentName)){
-      //   $studentName = NULL;
-      // }
-      // if(empty($fatherName)){
-      //   $fatherName = NULL;
-      // }
       if(empty($email)){
         $email = NULL;
       }
       if(empty($contactNumber)){
         $contactNumber = NULL;
       }
-      // if(empty($dob)){
-      //   $dob = NULL;
-      // }
-      // if(empty($address)){
-      //   $address = NULL;
-      // }
 
 
-
-// SEARCH BY A Particular Student
+      // SEARCH BY A Particular Student
 
       if(!empty($reqistrationNumber) || !empty($rollNumber) || !empty($email) || !empty($contactNumber)){
         $sql = "SELECT * FROM studentdb WHERE reg_no = '$registrationNumber' OR roll_no = '$rollNumber' OR email = '$email' OR contact_no = '$contactNumber';";
       }
 
-      // else{
-      //
-      // }
 
+      // SEARCH BY MULTIPLE STUDENTS
 
-    //   else{
-    //     $sql = "SELECT * FROM studentdb WHERE
-    //     (branch = '$branch' OR
-    //       shift = '$shift' OR
-    //       company = '$company') AND
-    //       (reg_no = '$registrationNumber' OR
-    //         roll_no = '$rollNumber' OR
-    //         student_name = '$studentName' OR
-    //         father_name = '$fatherName' OR
-    //         email = '$email' OR
-    //         contact_no = '$contactNumber' OR
-    //         dob = '$dob' OR
-    //         address = '$address');";
-    //       }
+      else{
 
+        $sql .= "SELECT * FROM studentdb WHERE ";
+
+        // branch
+
+        if($branch == 'ALL_BRANCH'){
+          $sql .= " (branch IS NOT NULL OR branch IS NULL) ";
+        }
+        else{
+          $sql .= " branch = '$branch' ";
+        }
+
+        // shift
+
+        if($shift == 'BOTH_12'){
+          $sql .= " AND (shift = 'SHIFT_1' OR shift = 'SHIFT_2') ";
+        }
+        else if($shift == 'ALL'){
+          $sql .= " AND (shift IS NOT NULL OR shift IS NULL) ";
+        }
+        else{
+          $sql .= "AND shift ='$shift' ";
+        }
+
+        // Company
+
+        if($company == 'ALL'){
+          $sql .= " AND (company IS NOT NULL OR company IS NULL) ";
+        }
+        else if($company == 'NONE'){
+          $sql .= " AND company IS NULL ";
+        }
+        else{
+          $sql .= " AND company = '$company' ";
+        }
+
+        // Student name
+
+        if(!empty($studentName)){
+          $studentName = strtoupper($studentName);
+          $sql .= " AND student_name = '$studentName' ";
+        }
+
+        // Father name
+
+        if(!empty($fatherName)){
+          $fatherName = strtoupper($fatherName);
+          $sql .= " AND father_name = '$fatherName' ";
+        }
+
+        // date of birth
+
+        if(!empty($dob)){
+          $sql .= " AND dob = '$dob' ";
+        }
+
+        // address
+
+        if(!empty($address)){
+          $sql .= " AND address = '$address';";
+        }
+        $sql .=";";
+        // echo $sql;
+      }
 
 
       $result = mysqli_query($conn, $sql);
+
+      if(file_exists('../../Scripts/results.json')){
+        unlink('../../Scripts/results.json');
+      }
+      $fp = fopen('../../Scripts/results.json', 'w');
 
 
       if(mysqli_num_rows($result) > 0){
         $rows = array();
         while($row = mysqli_fetch_assoc($result)){
           $rows[] = $row;
+          echo "<script>
+          document.getElementById('jumbot').style.display = 'flow-root';
+          </script>";
         }
 
-        if(file_exists('../../Scripts/results.json')){
-          unlink('../../Scripts/results.json');
-        }
-        $fp = fopen('../../Scripts/results.json', 'w');
         fwrite($fp, json_encode($rows));
         fclose($fp);
       }
