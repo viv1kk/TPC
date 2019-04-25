@@ -20,10 +20,6 @@
   <link href="../../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../../Stylesheet/studentdetails.css" rel="stylesheet">
 
-
-  <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="../../Scripts/studentdetails.js"></script>
-
   <!-- Custom styles for this template -->
 </head>
 

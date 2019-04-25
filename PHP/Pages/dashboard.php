@@ -13,11 +13,16 @@ require "../Header/header-dashboard.php";
 
           <h4 class="d-flex justify-content-between align-items-center mb-4">
             <span class="text-muted text-center">Columns for the Table</span>
-            <span class="badge badge-primary badge-pill" id="columns">1</span>
+            <span class="badge badge-primary badge-pill" id="columns">2</span>
           </h4>
 
           <ul class="mb-3">
             <li class="d-flex justify-content-between lh-condensed">
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input is-valid" id="col_user_ID" value="user_ID" checked disabled>
+                <label class="custom-control-label" for="col_reg_no">User ID</label>
+              </div>
+            </li>
               <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input is-valid" id="col_reg_no" value="reg_no" checked>
                 <label class="custom-control-label" for="col_reg_no">Registration Number</label>

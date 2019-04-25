@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   let checkboxColumn = document.querySelectorAll('.custom-control-input');
 
-  let increment = 1;
+  let increment = 2;
 
   for(let i = 0; i < checkboxColumn.length; i++){
     checkboxColumn[i].addEventListener('change', ()=>{
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       increment--;
       document.getElementById('columns').innerHTML = parseInt(increment);
     });
+    // console.log(checkboxColumn.length);
   }
 
 
@@ -79,18 +80,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
           let tableInfo = document.getElementById('dtBasicExample').childNodes[1];
-          // console.log(tableInfo.rows.length);
+          console.log(tableInfo.rows.length);
           for(let i = 0; i < tableInfo.rows.length; i++){
-            // console.log(i);
             let rowInfo = tableInfo.childNodes[i];
             rowInfo.addEventListener("click", ()=>{
-              console.log(rowVal[i][0]);
-              // let linkStd = "../../includes/StudentDetails.inc.php?userID="+rowVal[i][0];
-              let linkStd = "StudentDetails.php";
-
+              let user = parseInt(rowInfo.childNodes[0].innerHTML);
+              let linkStd = "StudentDetails.php?userID="+user;
               window.open(linkStd, '_blank');
-              // console.log("HELLO"+i);
-              // console.log(rowInfo.cells.length);
+
             });
           }
         }
@@ -137,13 +134,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     objects = data;
 
 
-    for(var i = 0; i<data.length; i++){
+    for(var i = 0; i < data.length; i++){
       var cells = [];
       for(y in objects[i]){
         cells.push(objects[i][y])
       }
       values.push(cells);
+      console.log(values);
     }
+    rowVal = values;
 
 
 
@@ -164,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     row.setAttribute("class","dnd-moved");
 
     for (var j = 0; j < checkboxValues.length; j++) {
+
       // Create a <td> element and a text node, make the text
       // node the contents of the <td>, and put the <td> at
       // the end of the table row
@@ -204,14 +204,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
             row.appendChild(cell);
           }
         }
+        console.log(values[i][0])
       }
 
       // add the row to the end of the table body
       tblBody.appendChild(row);
     }
-    rowVal = values;
-    console.log(keys);
-    console.log(values);
+    // console.log(keys);
+    // console.log(values);
 
 
     var tblFoot = document.createElement("tfoot");

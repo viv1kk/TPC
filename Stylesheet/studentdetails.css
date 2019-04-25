@@ -17,7 +17,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  /* background-color: #fff; */
+  background-color: #fff;
 }
 
 .navbar{
@@ -46,6 +46,7 @@ body {
 .jumbotron{
   width: 49%;
   padding:  3em;
+ box-sizing: border-box;
 }
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
