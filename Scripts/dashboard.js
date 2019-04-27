@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       increment--;
       document.getElementById('columns').innerHTML = parseInt(increment);
     });
-    // console.log(checkboxColumn.length);
   }
 
 

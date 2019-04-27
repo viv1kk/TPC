@@ -70,18 +70,12 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
   if(empty($registrationNumber) && empty($rollNumber)){
 
     echo "<script>
-    para = document.getElementById('para');
-    para.innerHTML = 'Both Registration Number and Roll Number fields cannot be empty';
+      $.notify('Both Registration Number and Roll Number fields cannot be empty');
     </script>";
 
     $errorEmpty = true;
   }
   else{
-    echo "<script>
-    para = document.getElementById('para');
-    para.innerHTML = '';
-    </script>";
-
     $errorEmpty = false;
   }
 
@@ -182,17 +176,11 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
     if(!mysqli_stmt_prepare($stmt, $sql)){
 
       echo "<script>
-      para = document.getElementById('para');
-      para.innerHTML = 'SQL Error';
+      $.notify('SQL Error');
       </script>";
       exit();
     }
     else{
-
-      echo "<script>
-      para = document.getElementById('para');
-      para.innerHTML = '';
-      </script>";
 
       $reg = $stmt;
       mysqli_stmt_bind_param($reg,"s",$registrationNumber);
@@ -201,39 +189,22 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
       $regResult = mysqli_stmt_num_rows($reg);
       if($regResult > 0){
-
         echo "<script>
-        para = document.getElementById('para');
-        para.innerHTML = 'Registration Number already exists';
+        $.notify('Registration Number already exists');
         </script>";
-
         exit();
       }
       else{
-
-        echo "<script>
-        para = document.getElementById('para');
-        para.innerHTML = '';
-        </script>";
         $sql = 'SELECT roll_no FROM studentdb WHERE roll_no=?';
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
-
           echo "<script>
-          para = document.getElementById('para');
-          para.innerHTML = 'SQL Error';
+          $.notify('SQL Error');
           </script>";
-
           exit();
         }
         else{
-
-          echo "<script>
-          para = document.getElementById('para');
-          para.innerHTML = '';
-          </script>";
-
           $roll = $stmt;
           mysqli_stmt_bind_param($roll, "s", $rollNumber);
           mysqli_stmt_execute($roll);
@@ -243,38 +214,21 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
           if($rollResult > 0){
             echo "<script>
-            para = document.getElementById('para');
-            para.innerHTML = 'Roll Number already exists';
+            $.notify('Roll Number already exists');
             </script>";
-
             exit();
           }
           else{
-
-            echo "<script>
-            para = document.getElementById('para');
-            para.innerHTML = '';
-            </script>";
-
             $sql = 'SELECT email FROM studentdb WHERE email=?';
             $stmt = mysqli_stmt_init($conn);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
-
               echo "<script>
-              para = document.getElementById('para');
-              para.innerHTML = 'SQL Error';
+              $.notify('SQL Error');
               </script>";
-
               exit();
             }
             else{
-
-              echo "<script>
-              para = document.getElementById('para');
-              para.innerHTML = '';
-              </script>";
-
               $em = $stmt;
               mysqli_stmt_bind_param($em, "s", $email);
               mysqli_stmt_execute($em);
@@ -283,39 +237,22 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
               $rollResult = mysqli_stmt_num_rows($em);
 
               if($rollResult > 0){
-
                 echo "<script>
-                para = document.getElementById('para');
-                para.innerHTML = 'Email already exists';
+                $.notify('Email already exists');
                 </script>";
-
                 exit();
               }
               else{
-
-                echo "<script>
-                para = document.getElementById('para');
-                para.innerHTML = '';
-                </script>";
-
                 $sql = 'SELECT contact_no FROM studentdb WHERE contact_no=?';
                 $stmt = mysqli_stmt_init($conn);
 
                 if(!mysqli_stmt_prepare($stmt, $sql)){
-
                   echo "<script>
-                  para = document.getElementById('para');
-                  para.innerHTML = 'SQL Error';
+                  $.notify('SQL Error');
                   </script>";
                   exit();
                 }
                 else{
-
-                  echo "<script>
-                  para = document.getElementById('para');
-                  para.innerHTML = '';
-                  </script>";
-
                   $contNo = $stmt;
                   mysqli_stmt_bind_param($contNo, "s", $contactNumber);
                   mysqli_stmt_execute($contNo);
@@ -324,30 +261,19 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
                   $contResult = mysqli_stmt_num_rows($contNo);
 
                   if($contResult > 0){
-
                     echo "<script>
-                    para = document.getElementById('para');
-                    para.innerHTML = 'Contact Number already exists';
+                    $.notify('Contact Number already exists');
                     </script>";
                     exit();
                   }
                   else{
-
-                    echo "<script>
-                    para = document.getElementById('para');
-                    para.innerHTML = '';
-                    </script>";
-
                     $sql = 'INSERT INTO studentdb (reg_no, roll_no, student_name, father_name, branch, shift, email, contact_no, dob, company, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
                     $stmt = mysqli_stmt_init($conn);
 
                     if(!mysqli_stmt_prepare($stmt, $sql)){
-
                       echo "<script>
-                      para = document.getElementById('para');
-                      para.innerHTML = 'SQL Error';
+                      $.notify('SQL Error');
                       </script>";
-
                       exit();
                     }
                     else{
@@ -375,9 +301,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
                       mysqli_stmt_execute($stmt);
 
                       echo "<script>
-                      para = document.getElementById('para');
-                      para.style.color = 'green';
-                      para.innerHTML = 'Success';
+                      $.notify('Student Enrolled Successfully!','success');
                       </script>";
                       exit();
                     }
@@ -393,8 +317,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 }
 else{
   echo "<script>
-  para = document.getElementById('para');
-  para.innerHTML = 'Whoops! Sompething went Wrong.';
+  $.notify('Whoops! Sompething went Wrong.');
   </script>";
   exit();
 }

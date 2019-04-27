@@ -4,7 +4,5 @@
       <span><a href="#" class="text-white">About us</a></span>
     </div>
   </footer>
-
-  <!-- <script src="../Scripts/login-script.js"></script> -->
 </body>
 </html>

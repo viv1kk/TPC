@@ -17,7 +17,6 @@ require "../Header/header-studentdetails.php";
     <div class="row justify-content-center">
 
       <div class="jumbotron mr-1" style="height:100%;">
-        <p id="paraDetails" class="lead text-center"></p>
         <div class="row mb-2">
           <div class="col-md-5 themed-grid-col">Registration Number</div>
           <div class="col-md-7 themed-grid-col" id= "register"></div>
@@ -67,10 +66,7 @@ require "../Header/header-studentdetails.php";
       </div>
 
       <div class="jumbotron ml-3" style="padding:2em;">
-
-
         <h5 class="text-muted text-left mb-2">Select the fields you want to edit
-
           <span class="badge badge-primary badge-pill ml-3" id="columns">0</span></h5>
           <br>
           <div class="row">
@@ -140,8 +136,6 @@ require "../Header/header-studentdetails.php";
 
         <h5 class="text-muted text-left mt-3 ">Enter the Details</h5>
         <!-- <br> -->
-
-        <p id="para" class="lead text-center">*HELLO*</p>
 
         <form class="needs-validation">
 

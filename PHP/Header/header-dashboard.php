@@ -22,11 +22,6 @@
   <link href="../../Stylesheet/dragndrop.css" rel="stylesheet">
   <link href="../../Stylesheet/dashboard.css" rel="stylesheet">
 
-  <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="../../Libs/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="../../Libs/dragndrop.table.columns.min.js"></script>
-  <script type="text/javascript" src="../../Scripts/dashboard.js"></script>
-
   <!-- Custom styles for this template -->
 </head>
 

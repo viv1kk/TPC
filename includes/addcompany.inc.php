@@ -79,17 +79,12 @@ if(isset($_POST['comp_name'], $_POST['email'], $_POST['contact_no'])){
   if($cse == 0 && $it == 0){
 
     echo "<script>
-    para = document.getElementById('para');
-    para.innerHTML = 'Select atleast one Branch';
+    $.notify('Select atleast one Branch');
     </script>";
 
     $errorCheckbox = true;
   }
   else{
-    echo "<script>
-    para = document.getElementById('para');
-    para.innerHTML = '';
-    </script>";
 
     $errorCheckbox = false;
   }
@@ -117,16 +112,12 @@ else{
 }
 
 
-
-
   if(empty($email)){
     $email = NULL;
   }
   if(empty($contactNumber)){
     $contactNumber = NULL;
   }
-
-
 
 
 if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
@@ -136,19 +127,12 @@ if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
     if(!mysqli_stmt_prepare($stmt, $sql)){
 
       echo "<script>
-      para = document.getElementById('para');
-      para.innerHTML = 'SQL Error';
+      $.notify('SQL Error');
       </script>";
 
       exit();
     }
     else{
-
-      echo "<script>
-      para = document.getElementById('para');
-      para.innerHTML = '';
-      </script>";
-
       $comp = $stmt;
       mysqli_stmt_bind_param($comp,"s",$companyName);
       mysqli_stmt_execute($comp);
@@ -158,37 +142,23 @@ if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
       if($compResult > 0){
 
         echo "<script>
-        para = document.getElementById('para');
-        para.innerHTML = 'Company with this name already exists';
+        $.notify('Company with this name already exists');
         </script>";
 
         exit();
       }
       else{
-
-        echo "<script>
-        para = document.getElementById('para');
-        para.innerHTML = '';
-        </script>";
-
         $sql = 'SELECT company_email FROM companydb WHERE company_email=?';
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
 
           echo "<script>
-          para = document.getElementById('para');
-          para.innerHTML = 'SQL Error';
+          $.notify('SQL Error');
           </script>";
           exit();
         }
         else{
-
-          echo "<script>
-          para = document.getElementById('para');
-          para.innerHTML = '';
-          </script>";
-
           $compName = $stmt;
           mysqli_stmt_bind_param($compName, "s", $email);
           mysqli_stmt_execute($compName);
@@ -197,29 +167,18 @@ if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
           $compNameResult = mysqli_stmt_num_rows($compName);
 
           if($compNameResult > 0){
-
             echo "<script>
-            para = document.getElementById('para');
-            para.innerHTML = 'Company E-mail already exists';
+            $.notify('Company E-mail already exists');
             </script>";
-
             exit();
           }
           else{
-
-            echo "<script>
-            para = document.getElementById('para');
-            para.innerHTML = '';
-            </script>";
-
             $sql = 'SELECT company_contact_number FROM companydb WHERE company_contact_number=?';
             $stmt = mysqli_stmt_init($conn);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
-
               echo "<script>
-              para = document.getElementById('para');
-              para.innerHTML = 'SQL Error';
+              $.notify('SQL Error');
               </script>";
               exit();
             }
@@ -232,31 +191,20 @@ if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
               $compContResult = mysqli_stmt_num_rows($compContNo);
 
               if($compContResult > 0){
-
                 echo "<script>
-                para = document.getElementById('para');
-                para.innerHTML = 'Company with this contact number already exists';
+                $.notify('Company with this contact number already exists');
                 </script>";
 
                 exit();
               }
               else{
-
-                echo "<script>
-                para = document.getElementById('para');
-                para.innerHTML = '';
-                </script>";
-
                 $sql = 'INSERT INTO companydb (company_name, company_email, company_contact_number, cse, it) VALUES (?, ?, ?, ?, ?)';
                 $stmt = mysqli_stmt_init($conn);
 
                 if(!mysqli_stmt_prepare($stmt, $sql)){
-
                   echo "<script>
-                  para = document.getElementById('para');
-                  para.innerHTML = 'SQL Error';
+                  $.notify('SQL Error');
                   </script>";
-
                   exit();
                 }
                 else{
@@ -265,9 +213,7 @@ if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
                   mysqli_stmt_bind_param($stmt,"sssss", $companyName, $email, $contactNumber, $cse, $it);
                   mysqli_stmt_execute($stmt);
                   echo "<script>
-                  para = document.getElementById('para');
-                  para.style.color = 'green';
-                  para.innerHTML = 'Success';
+                  $.notify('Company Added Successfully!','success');
                   </script>";
                   exit();
                 }
@@ -281,8 +227,7 @@ if(!$errorEmpty && !$errorEmail && !$errorCont && !$errorCheckbox){
 }
 else{
   echo "<script>
-  para = document.getElementById('para');
-  para.innerHTML = 'Whoops! Something went Wrong.';
+  $.notify('Whoops! Something went Wrong.');
   </script>";
   exit();
 }

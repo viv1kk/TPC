@@ -219,7 +219,6 @@ require "../Header/header-dashboard.php";
 
   <!-- Jumbotron needed to be hidden  -->
 
-  <p id="para" class="lead text-center"></p>
   <div class="jumbotron mb-2" id="jumbot">
     <div class="container-fluid row justify-content-center" id="contain">
     </div>

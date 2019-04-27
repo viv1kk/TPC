@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-  let para;
   let email;
   let regNo;
   let rollNo;

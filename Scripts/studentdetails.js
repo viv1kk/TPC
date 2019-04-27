@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   let details = [];
 
 
-
   //COMPANY
   // ON LOAD EVENT
   let branch = $("#branch_select").val();
@@ -25,8 +24,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
 
-
-
   let url_string = window.location.href;
   let url = new URL(url_string);
   let userID = url.searchParams.get("userID");
@@ -44,17 +41,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },(data, status)=>{
 
       $("#code").html(data);
-      // setTimeout(stdDetails, 2000);
+      setTimeout(stdDetails, 2000);
+
     });
   }
   stdDetails();
-
 
   let inp = document.querySelector('.needs-validation').elements;
   for(let i = 0; i < inp.length; i++){
     inp[i].disabled = true;
   }
-
 
 
   let subButton = document.querySelector('#edit-submit');
@@ -93,11 +89,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
 
-
-
-
-
   $('#edit-submit').unbind("click").click(()=>{
+
     $.post("../../includes/Student Details/EditDetails.inc.php",{
       userID: userID,
       reg_no: $('#regNo').val(),
@@ -105,22 +98,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       student_name: $('#studentName').val(),
       father_name: $('#fatherName').val(),
       branch: $('#branch_select').val(),
+      branchDisabled: inp[4].disabled,
       shift: $('#shifts').val(),
+      shiftDisabled: inp[5].disabled,
       email: $('#mail').val(),
       contact_no: $('#mob_no').val(),
       dob: $('#dateofb').val(),
       company: $('#company_select').val(),
+      companyDisabled: inp[9].disabled,
       address: $('#addr').val()
     },(data)=>{
       $('#editCode').html(data);
       console.log(data);
     });
   });
-
-
-
-
-
-
-
 });

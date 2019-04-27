@@ -6,7 +6,6 @@ require "../Header/header-addcompany.php"
   <div class="jumbotron mb-0 ">
     <div class="container-fluid row justify-content-center">
       <div class="col-md-6 order-md-3 justify-content-center">
-            <p id="para" class="lead text-center" style= "color:red"></p>
         <form class="needs-validation">
           <h4 class="mb-3 h4 text-muted">Add the Company</h4>
 

@@ -5,7 +5,7 @@
 </footer>
 
 <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../Libs/notify.js"></script>
 <script type="text/javascript" src="../../Scripts/studentdetails.js"></script>
-
 </body>
 </html>

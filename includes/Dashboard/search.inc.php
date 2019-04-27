@@ -261,7 +261,6 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
 
 else{
   echo "<script>
-  let para = document.getElementById('para');
-  para.innerHTML = 'Error: Something Went Wrong';
+  $.notify('Error: Something Went Wrong');
   </script>";
 }

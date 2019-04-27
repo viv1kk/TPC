@@ -10,9 +10,6 @@ if(isset($_POST['userID'])){
   $result = mysqli_query($conn, $sql) or die("Connection Failed: ".mysqli_connect_error());
 
   if(mysqli_num_rows($result) > 0){
-
-    echo "<script>paraDetails = document.getElementById('paraDetails');
-    paraDetails.innerHTML = '';</script>";
     $data = "";
     while($row = mysqli_fetch_assoc($result)){
 
@@ -26,7 +23,7 @@ if(isset($_POST['userID'])){
             Object.keys(arr).forEach(function(key) {
             details.push(arr[key]);
             });
-            
+
             det = document.querySelectorAll('.col-md-7');
             for(let i = 0; i < details.length; i++){
               det[i].innerHTML = details[i+1];
@@ -40,15 +37,17 @@ if(isset($_POST['userID'])){
   }
 
   else{
-    echo "<script>paraDetails = document.getElementById('paraDetails');
-    paraDetails.innerHTML = 'No Student Found';</script>";
+    echo "<script>
+    $.notify('No Student Found');
+</script>";
     exit();
   }
   exit();
 
 }
 else{
-  echo "<script>paraDetails = document.getElementById('paraDetails');
-  paraDetails.innerHTML = 'Error';</script>";
+  echo "<script>
+  $.notify('Error! Something went Wrong.');
+  </script>";
   exit();
 }

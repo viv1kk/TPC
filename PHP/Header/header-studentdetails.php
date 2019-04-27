@@ -28,7 +28,7 @@
 <header class="page-header">
   <nav class="navbar navbar-expand-xl navbar-dark mb-5 ">
     <div class= "container">
-      <a class="navbar-brand" href="#" ><h1 class="h2">Training And Placement Cell</h1></a>
+      <a class="navbar-brand" href="../Pages/dashboard.php" ><h1 class="h2">Training And Placement Cell</h1></a>
 
     <div class="navbar navbar-collapse">
       <ul class="navbar-nav mr-auto">

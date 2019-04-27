@@ -3,7 +3,8 @@
     <span><a href="#" class="text-white">About us</a></span>
   </div>
 </footer>
-
+<script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../Libs/notify.js"></script>
 <script src="../../Scripts/enrollstudent.js"></script>
 </body>
 </html>

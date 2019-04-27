@@ -7,8 +7,6 @@ require "../Header/header-enrollstudent.php"
   <div class="jumbotron mb-1 row justify-content-center" id="wrapper">
     <div class="container-fluid row justify-content-center">
   <div class="col-mb-6 order-md-1 justify-content-center">
-    <p id="para" class="lead text-center" style= "color:red "></p>
-
         <form class="needs-validation">
           <h4 class="mb-3 h4 text-muted">Enroll a Student</h4>
 

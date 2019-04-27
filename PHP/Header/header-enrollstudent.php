@@ -23,8 +23,6 @@
   <!-- Custom styles for this template -->
   <link href="../../Stylesheet/enrollstudent.css" rel="stylesheet">
 
-  <script type="text/javascript" src="../../Libs/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="../../Libs/jquery.dataTables.min.js"></script>
 </head>
 
 <body class="bg-light">
