@@ -19,6 +19,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="../../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../Sweet Alert/sweetalert2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
 
@@ -29,13 +30,13 @@
 
   <nav class="navbar navbar-expand-xl navbar-dark mb-1">
     <div class= "container">
-      <a class="navbar-brand " href="dashboard.php" ><h1 class="h2">Training And Placement Cell</h1></a>
+      <a class="navbar-brand " id='dashboard'><h1 class="h2">Training And Placement Cell</h1></a>
 
     <div class="navbar navbar-collapse ">
       <ul class="navbar-nav mr-auto">
 
       <li class="nav-item">
-        <a class="nav-link ml-4 " href="enrollstudent.php">Enroll a Student</a>
+        <a class="nav-link ml-4" id='enroll_student'>Enroll a Student</a>
       </li>
 
       <li class="nav-item">

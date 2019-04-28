@@ -1,12 +1,13 @@
 <?php
-if(isset($_POST['userID'])){
+if(isset($_POST['session'], $_POST['userID'])){
 
   require "../dbh.inc.php";
 
+  $session = $_POST['session'];
   $userID = (int) $_POST['userID'];
   // echo $userID;
 
-  $sql = "SELECT * FROM studentdb WHERE user_ID = '$userID';";
+  $sql = "SELECT * FROM studentdb$session WHERE user_ID = '$userID';";
   $result = mysqli_query($conn, $sql) or die("Connection Failed: ".mysqli_connect_error());
 
   if(mysqli_num_rows($result) > 0){

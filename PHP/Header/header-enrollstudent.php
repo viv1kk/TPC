@@ -19,6 +19,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="../../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../Sweet Alert/sweetalert2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="../../Stylesheet/enrollstudent.css" rel="stylesheet">
@@ -29,7 +30,7 @@
 
   <nav class="navbar navbar-expand-xl navbar-dark mb-1">
     <div class= "container">
-      <a class="navbar-brand " href="dashboard.php" ><h1 class="h2">Training And Placement Cell</h1></a>
+      <a class="navbar-brand" id='dashboard'><h1 class="h2">Training And Placement Cell</h1></a>
 
     <div class="navbar navbar-collapse ">
       <ul class="navbar-nav mr-auto">
@@ -39,7 +40,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link ml-3" href="addcompany.php">Add a Company for Placement</a>
+        <a class="nav-link ml-3" id='add_company'>Add a Company for Placement</a>
       </li>
     </ul>
     <form class="form-inline" action="../../includes/signout.inc.php">

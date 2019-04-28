@@ -1,5 +1,4 @@
 // Table Spacifications
-
 document.addEventListener("DOMContentLoaded", function(event) {
 
   // used in php form validation
@@ -29,9 +28,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //AJAX for getting company Names
 
   // ON LOAD EVENT
+
+//GET SESSION FROM URL
+  let sessionYear;
+
+
+  let url_string = window.location.href;
+  let url = new URL(url_string);
+  let session = url.searchParams.get("session");
+
+  console.log(session);
+
   let branch = $("#branch").val();
   $.post("../../includes/Dashboard/selectoption.inc.php",{
-    branchName: branch
+    branchName: branch,
+    session:session
   },(data, status)=>{
     $("#company").html(data);
   });
@@ -40,7 +51,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   $("#branch").change(()=>{
     let branch = $("#branch").val();
     $.post("../../includes/Dashboard/selectoption.inc.php",{
-      branchName: branch
+      branchName: branch,
+      session:session
     },(data, status)=>{
       $("#company").html(data);
     });
@@ -52,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   $('#search').unbind("click").click(()=>{
     $.post("../../includes/Dashboard/search.inc.php",{
+      session:session,
       regNo: $('#reg_no').val(),
       rollNo: $('#roll_no').val(),
       studentName: $('#studentName').val(),
@@ -79,12 +92,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
           let tableInfo = document.getElementById('dtBasicExample').childNodes[1];
-          console.log(tableInfo.rows.length);
+          // console.log(tableInfo.rows.length);
           for(let i = 0; i < tableInfo.rows.length; i++){
             let rowInfo = tableInfo.childNodes[i];
             rowInfo.addEventListener("click", ()=>{
               let user = parseInt(rowInfo.childNodes[0].innerHTML);
-              let linkStd = "StudentDetails.php?userID="+user;
+              // let url = window.location.href;
+              let linkStd = "StudentDetails.php?session="+session+"&userID="+user;
               window.open(linkStd, '_blank');
 
             });
@@ -139,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         cells.push(objects[i][y])
       }
       values.push(cells);
-      console.log(values);
+      // console.log(values);
     }
     rowVal = values;
 
@@ -203,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             row.appendChild(cell);
           }
         }
-        console.log(values[i][0])
+        // console.log(values[i][0])
       }
 
       // add the row to the end of the table body

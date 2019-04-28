@@ -1,12 +1,12 @@
 <?php
 
-if(isset($_POST['branchDisabled'], $_POST['shiftDisabled'], $_POST['companyDisabled'], $_POST['userID'], $_POST['reg_no'], $_POST['roll_no'], $_POST['student_name'], $_POST['father_name'], $_POST['branch'], $_POST['shift'], $_POST['email'],
+if(isset($_POST['session'], $_POST['branchDisabled'], $_POST['shiftDisabled'], $_POST['companyDisabled'], $_POST['userID'], $_POST['reg_no'], $_POST['roll_no'], $_POST['student_name'], $_POST['father_name'], $_POST['branch'], $_POST['shift'], $_POST['email'],
 $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
 
   require '../dbh.inc.php';
 
-
+  $session = $_POST['session'];
   $userID = $_POST['userID'];
   $registrationNumber = $_POST['reg_no'];
   $rollNumber = $_POST['roll_no'];
@@ -156,7 +156,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
 
     if(!empty($registrationNumber) && !$errorReg){
-      $sql = "SELECT user_ID, reg_no FROM studentdb WHERE reg_no = '$registrationNumber';";
+      $sql = "SELECT user_ID, reg_no FROM studentdb$session WHERE reg_no = '$registrationNumber';";
       $result = mysqli_query($conn, $sql);
       if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_assoc($result);
@@ -171,7 +171,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
       }
 
       else{
-        $sqlUpdate = "UPDATE studentdb SET reg_no = '$registrationNumber' WHERE user_ID = $userID;";
+        $sqlUpdate = "UPDATE studentdb$session SET reg_no = '$registrationNumber' WHERE user_ID = $userID;";
         if(mysqli_query($conn, $sqlUpdate)){
           echo "<script>
           $.notify('Registration Number Edited Successfully.','success');
@@ -193,7 +193,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
 
     if(!empty($rollNumber) && !$errorRoll){
-      $sql = "SELECT user_ID, roll_no FROM studentdb WHERE roll_no = '$rollNumber';";
+      $sql = "SELECT user_ID, roll_no FROM studentdb$session WHERE roll_no = '$rollNumber';";
       $result = mysqli_query($conn, $sql);
       if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_assoc($result);
@@ -206,7 +206,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
         }
       }
       else{
-        $sqlUpdate = "UPDATE studentdb SET roll_no = '$rollNumber' WHERE user_ID = $userID;";
+        $sqlUpdate = "UPDATE studentdb$session SET roll_no = '$rollNumber' WHERE user_ID = $userID;";
         if(mysqli_query($conn, $sqlUpdate)){
           echo "<script>
           $.notify('Roll Number Edited Successfully.','success');
@@ -229,7 +229,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
     if(!empty($studentName)){
       $studentName = strtoupper($studentName);
-      $sqlUpdate = "UPDATE studentdb SET student_name = '$studentName' WHERE user_ID = $userID;";
+      $sqlUpdate = "UPDATE studentdb$session SET student_name = '$studentName' WHERE user_ID = $userID;";
       if(mysqli_query($conn, $sqlUpdate)){
         echo "<script>
         $.notify('Student Name Edited Successfully.','success');
@@ -250,7 +250,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
     if(!empty($fatherName)){
       $fatherName = strtoupper($fatherName);
-      $sqlUpdate = "UPDATE studentdb SET father_name = '$fatherName' WHERE user_ID = $userID;";
+      $sqlUpdate = "UPDATE studentdb$session SET father_name = '$fatherName' WHERE user_ID = $userID;";
       if(mysqli_query($conn, $sqlUpdate)){
         echo "<script>
         $.notify('Father Name Edited Successfully.','success');
@@ -270,7 +270,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
     if(!empty($branch) && $branchDisabled === 0){
       $branch = strtoupper($branch);
 
-      $sqlUpdate = "UPDATE studentdb SET branch = '$branch' WHERE user_ID = $userID;";
+      $sqlUpdate = "UPDATE studentdb$session SET branch = '$branch' WHERE user_ID = $userID;";
       if(mysqli_query($conn, $sqlUpdate)){
         echo "<script>
         $.notify('Branch Edited Successfully.','success');
@@ -291,7 +291,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
     if(!empty($shift) && $shiftDisabled === 0){
       $shift = strtoupper($shift);
 
-      $sqlUpdate = "UPDATE studentdb SET shift = '$shift' WHERE user_ID = $userID;";
+      $sqlUpdate = "UPDATE studentdb$session SET shift = '$shift' WHERE user_ID = $userID;";
       if(mysqli_query($conn, $sqlUpdate)){
         echo "<script>
         $.notify('Shift Edited Successfully.','success');
@@ -310,7 +310,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
     // Email
 
     if(!empty($email) && !$errorEmail){
-      $sql = "SELECT user_ID, email FROM studentdb WHERE user_ID = $userID;";
+      $sql = "SELECT user_ID, email FROM studentdb$session WHERE user_ID = $userID;";
       $result = mysqli_query($conn, $sql);
       if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_assoc($result);
@@ -323,7 +323,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
         }
       }
       else{
-        $sqlUpdate = "UPDATE studentdb SET email = '$email' WHERE user_ID = $userID;";
+        $sqlUpdate = "UPDATE studentdb$session SET email = '$email' WHERE user_ID = $userID;";
         if(mysqli_query($conn, $sqlUpdate)){
           echo "<script>
           $.notify('Email Edited Successfully.','success');
@@ -344,7 +344,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
 
     if(!empty($contactNumber) && !$errorCont){
-      $sql = "SELECT user_ID, contact_no FROM studentdb WHERE contact_no = '$contactNumber';";
+      $sql = "SELECT user_ID, contact_no FROM studentdb$session WHERE contact_no = '$contactNumber';";
       $result = mysqli_query($conn, $sql);
       if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_assoc($result);
@@ -357,7 +357,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
         }
       }
       else{
-        $sqlUpdate = "UPDATE studentdb SET contact_no = '$contactNumber' WHERE user_ID = $userID;";
+        $sqlUpdate = "UPDATE studentdb$session SET contact_no = '$contactNumber' WHERE user_ID = $userID;";
         if(mysqli_query($conn, $sqlUpdate)){
           echo "<script>
           $.notify('Edited Contact Number Successfully','success');
@@ -379,7 +379,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
 
     if(!empty($dob)){
-      $sqlUpdate = "UPDATE studentdb SET dob = '$dob' WHERE user_ID = $userID;";
+      $sqlUpdate = "UPDATE studentdb$session SET dob = '$dob' WHERE user_ID = $userID;";
       if(mysqli_query($conn, $sqlUpdate)){
         echo "<script>
         $.notify('DOB Edited Successfully.','success');
@@ -400,7 +400,7 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
     //COMPANY
 
     if($company == 'NONE'){
-      $sqlUpdate = "UPDATE studentdb SET company = NULL WHERE user_ID = $userID;";
+      $sqlUpdate = "UPDATE studentdb$session SET company = NULL WHERE user_ID = $userID;";
       if(mysqli_query($conn, $sqlUpdate)){
         echo "<script>
         $.notify('Company Edited Successfully.','success');
@@ -418,7 +418,7 @@ else
     if(!empty($company) && $company != NULL && $companyDisabled === 0){
       $company = strtoupper($company);
 
-      $sqlUpdate = "UPDATE studentdb SET company = '$company' WHERE user_ID = $userID;";
+      $sqlUpdate = "UPDATE studentdb$session SET company = '$company' WHERE user_ID = $userID;";
       if(mysqli_query($conn, $sqlUpdate)){
         echo "<script>
         $.notify('Company Edited Successfully.','success');
@@ -440,7 +440,7 @@ else
     if(!empty($address)){
       $address = strtoupper($address);
 
-      $sqlUpdate = "UPDATE studentdb SET address = '$address' WHERE user_ID = $userID;";
+      $sqlUpdate = "UPDATE studentdb$session SET address = '$address' WHERE user_ID = $userID;";
       if(mysqli_query($conn, $sqlUpdate)){
         echo "<script>
         $.notify('Address Edited Successfully.','success');
@@ -457,6 +457,6 @@ else
 }
 else{
   echo "<script>
-  $.notify('Whoops! Sompething went Wrong.');
+  $.notify('Whoops! Something went Wrong.');
   </script>";
 }

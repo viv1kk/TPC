@@ -1,9 +1,10 @@
 <?php
-if(isset($_POST['regNo'], $_POST['rollNo'], $_POST['studentName'], $_POST['fatherName'], $_POST['branches'], $_POST['shifts'],
+if(isset($_POST['session'], $_POST['regNo'], $_POST['rollNo'], $_POST['studentName'], $_POST['fatherName'], $_POST['branches'], $_POST['shifts'],
 $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['address'])){
 
   require "../dbh.inc.php";
 
+  $session = $_POST['session'];
   $registrationNumber = $_POST['regNo'];
   $rollNumber = $_POST['rollNo'];
   $studentName = $_POST['studentName'];
@@ -157,7 +158,7 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
       // SEARCH BY A Particular Student
 
       if(!empty($reqistrationNumber) || !empty($rollNumber) || !empty($email) || !empty($contactNumber)){
-        $sql = "SELECT * FROM studentdb WHERE reg_no = '$registrationNumber' OR roll_no = '$rollNumber' OR email = '$email' OR contact_no = '$contactNumber';";
+        $sql = "SELECT * FROM studentdb$session WHERE reg_no = '$registrationNumber' OR roll_no = '$rollNumber' OR email = '$email' OR contact_no = '$contactNumber';";
       }
 
 
@@ -165,7 +166,7 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
 
       else{
 
-        $sql .= "SELECT * FROM studentdb WHERE ";
+        $sql .= "SELECT * FROM studentdb$session WHERE ";
 
         // branch
 

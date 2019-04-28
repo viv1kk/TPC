@@ -28,17 +28,17 @@
 <header class="page-header">
   <nav class="navbar navbar-expand-xl navbar-dark mb-5 ">
     <div class= "container">
-      <a class="navbar-brand" href="../Pages/dashboard.php" ><h1 class="h2">Training And Placement Cell</h1></a>
+      <a class="navbar-brand" id='dashboard'><h1 class="h2">Training And Placement Cell</h1></a>
 
     <div class="navbar navbar-collapse">
       <ul class="navbar-nav mr-auto">
 
       <li class="nav-item">
-        <a class="nav-link ml-4" href="enrollstudent.php">Enroll a Student</a>
+        <a class="nav-link ml-4" id="enroll_student">Enroll a Student</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link ml-3" href="addcompany.php">Add a Company for Placement</a>
+        <a class="nav-link ml-3" id="add_company">Add a Company for Placement</a>
       </li>
     </ul>
     <form class="form-inline" action="../../includes/signout.inc.php">

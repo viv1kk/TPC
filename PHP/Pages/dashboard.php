@@ -153,6 +153,11 @@ require "../Header/header-dashboard.php";
                 <option value="ALL_BRANCH">All branches</option>
                 <option value="CSE">Computer Science And Engineering</option>
                 <option value="IT">Information Technology</option>
+                <option value='ELEX'>Electronics Engineering</option>
+                <option value='ELEC'>Electrical Engineering</option>
+                <option value='MECH_PRO'>Mechanical Production</option>
+                <option value='MECH_AUTO'>Mechanical Automobile</option>
+                <option value='CIVIL'>Civil Engineering</option>
               </select>
             </div>
 

@@ -1,11 +1,12 @@
 <?php
 
-if(isset($_POST['reg_no'], $_POST['roll_no'], $_POST['student_name'], $_POST['father_name'], $_POST['branch'], $_POST['shift'], $_POST['email'],
+if(isset($_POST['session'], $_POST['reg_no'], $_POST['roll_no'], $_POST['student_name'], $_POST['father_name'], $_POST['branch'], $_POST['shift'], $_POST['email'],
 $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
 
   require 'dbh.inc.php';
 
+  $session = $_POST['session'];
   $registrationNumber = $_POST['reg_no'];
   $rollNumber = $_POST['roll_no'];
   $studentName = $_POST['student_name'];
@@ -17,8 +18,6 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
   $dob = $_POST['dob'];
   $company = $_POST['company'];
   $address = $_POST['address'];
-
-
 
 
   if(empty($registrationNumber)){
@@ -56,7 +55,6 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
   }
 
 
-
   $errorEmpty = false;
   $errorEmail = false;
   $errorReg = false;
@@ -70,7 +68,18 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
   if(empty($registrationNumber) && empty($rollNumber)){
 
     echo "<script>
-      $.notify('Both Registration Number and Roll Number fields cannot be empty');
+
+    Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    Toast.fire({
+      type: 'error',
+      title: 'Both Registration Number and Roll Number fields cannot be empty'});
+
+      // $.notify('Both Registration Number and Roll Number fields cannot be empty');
     </script>";
 
     $errorEmpty = true;
@@ -170,13 +179,24 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
   if(!$errorEmpty && !$errorEmail && !$errorReg && !$errorRoll && !$errorCont){
 
-    $sql = 'SELECT reg_no FROM studentdb WHERE reg_no=?';
+    $sql = "SELECT reg_no FROM studentdb$session WHERE reg_no=?";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
 
       echo "<script>
-      $.notify('SQL Error');
+
+      Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      Toast.fire({
+        type: 'error',
+        title: 'SQL Error!'});
+
+      // $.notify('SQL Error');
       </script>";
       exit();
     }
@@ -190,17 +210,40 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
       $regResult = mysqli_stmt_num_rows($reg);
       if($regResult > 0){
         echo "<script>
-        $.notify('Registration Number already exists');
+
+        Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
+        Toast.fire({
+          type: 'error',
+          title: 'Registration Number already exists!'});
+
+
+        // $.notify('Registration Number already exists');
         </script>";
         exit();
       }
       else{
-        $sql = 'SELECT roll_no FROM studentdb WHERE roll_no=?';
+        $sql = "SELECT roll_no FROM studentdb$session WHERE roll_no=?";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
           echo "<script>
-          $.notify('SQL Error');
+
+          Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+          Toast.fire({
+            type: 'error',
+            title: 'SQL Error!'});
+
+          // $.notify('SQL Error');
           </script>";
           exit();
         }
@@ -214,17 +257,39 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
           if($rollResult > 0){
             echo "<script>
-            $.notify('Roll Number already exists');
+
+            Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000
+            });
+            Toast.fire({
+              type: 'error',
+              title: 'Roll Number already exists!'});
+
+            // $.notify('Roll Number already exists');
             </script>";
             exit();
           }
           else{
-            $sql = 'SELECT email FROM studentdb WHERE email=?';
+            $sql = "SELECT email FROM studentdb$session WHERE email=?";
             $stmt = mysqli_stmt_init($conn);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
               echo "<script>
-              $.notify('SQL Error');
+
+              Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+              });
+              Toast.fire({
+                type: 'error',
+                title: 'SQL Error!'});
+
+              // $.notify('SQL Error');
               </script>";
               exit();
             }
@@ -238,17 +303,39 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
               if($rollResult > 0){
                 echo "<script>
-                $.notify('Email already exists');
+
+                Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000
+                });
+                Toast.fire({
+                  type: 'error',
+                  title: 'This Email already exists!'});
+
+                // $.notify('Email already exists');
                 </script>";
                 exit();
               }
               else{
-                $sql = 'SELECT contact_no FROM studentdb WHERE contact_no=?';
+                $sql = "SELECT contact_no FROM studentdb$session WHERE contact_no=?";
                 $stmt = mysqli_stmt_init($conn);
 
                 if(!mysqli_stmt_prepare($stmt, $sql)){
                   echo "<script>
-                  $.notify('SQL Error');
+
+                  Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                  });
+                  Toast.fire({
+                    type: 'error',
+                    title: 'SQL Error!'});
+
+                  // $.notify('SQL Error');
                   </script>";
                   exit();
                 }
@@ -262,17 +349,39 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 
                   if($contResult > 0){
                     echo "<script>
-                    $.notify('Contact Number already exists');
+
+                    Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      showConfirmButton: false,
+                      timer: 3000
+                    });
+                    Toast.fire({
+                      type: 'error',
+                      title: 'Contact Number already exists!'});
+
+                    // $.notify('Contact Number already exists');
                     </script>";
                     exit();
                   }
                   else{
-                    $sql = 'INSERT INTO studentdb (reg_no, roll_no, student_name, father_name, branch, shift, email, contact_no, dob, company, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                    $sql = "INSERT INTO studentdb$session (reg_no, roll_no, student_name, father_name, branch, shift, email, contact_no, dob, company, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = mysqli_stmt_init($conn);
 
                     if(!mysqli_stmt_prepare($stmt, $sql)){
                       echo "<script>
-                      $.notify('SQL Error');
+
+                      Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                      });
+                      Toast.fire({
+                        type: 'error',
+                        title: 'SQL Error!'});
+
+                      // $.notify('SQL Error');
                       </script>";
                       exit();
                     }
@@ -301,7 +410,18 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
                       mysqli_stmt_execute($stmt);
 
                       echo "<script>
-                      $.notify('Student Enrolled Successfully!','success');
+
+                      Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000
+                      });
+                      Toast.fire({
+                        type: 'success',
+                        title: 'Student Enrolled Successfully!'});
+
+                      // $.notify('Student Enrolled Successfully!','success');
                       </script>";
                       exit();
                     }
@@ -317,7 +437,18 @@ $_POST['contact_no'], $_POST['dob'], $_POST['company'], $_POST['address'])){
 }
 else{
   echo "<script>
-  $.notify('Whoops! Sompething went Wrong.');
+
+  Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+  });
+  Toast.fire({
+    type: 'error',
+    title: 'Whoops! Sompething went Wrong.'});
+
+  // $.notify('Whoops! Sompething went Wrong.');
   </script>";
   exit();
 }

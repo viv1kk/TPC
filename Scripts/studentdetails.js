@@ -1,5 +1,22 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
+  let url_string = window.location.href;
+  let url = new URL(url_string);
+
+  let session = url.searchParams.get("session");
+
+  console.log(session);
+
+  let enroll_student = "enrollstudent.php?session="+session;
+  let add_company = "addcompany.php?session="+session;
+  let dashboard = "dashboard.php?session="+session;
+
+
+  $("#enroll_student").attr("href", enroll_student);
+  $("#add_company").attr("href", add_company);
+  $("#dashboard").attr("href", dashboard);
+
+
   let arr = [];
   let details = [];
 
@@ -8,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // ON LOAD EVENT
   let branch = $("#branch_select").val();
   $.post("../../includes/Dashboard/selectoption.inc.php",{
+    session:session,
     branchNameEn: branch
   },(data, status)=>{
     $("#company_select").html(data);
@@ -17,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   $("#branch_select").change(()=>{
     let branch = $("#branch_select").val();
     $.post("../../includes/Dashboard/selectoption.inc.php",{
+      session:session,
       branchNameEn: branch
     },(data, status)=>{
       $("#company_select").html(data);
@@ -24,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
 
-  let url_string = window.location.href;
-  let url = new URL(url_string);
+  // let url_string = window.location.href;
+  // let url = new URL(url_string);
   let userID = url.searchParams.get("userID");
   // console.log(userID);
 
@@ -37,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   function stdDetails(){
 
     $.post("../../includes/Student Details/StudentDetails.inc.php",{
+      session:session,
       userID: userID
     },(data, status)=>{
 
@@ -92,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   $('#edit-submit').unbind("click").click(()=>{
 
     $.post("../../includes/Student Details/EditDetails.inc.php",{
+      session:session,
       userID: userID,
       reg_no: $('#regNo').val(),
       roll_no: $('#rollNo').val(),
