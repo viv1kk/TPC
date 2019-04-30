@@ -21,27 +21,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   let arr = [];
   let details = [];
+  let details1 = [];
   let branchArr = [];
-
+  let arrayStd = [];
+  let details2 = [];
 
 
   let companyID = url.searchParams.get("companyID");
-  // console.log(userID);
+  console.log(companyID);
+
+
+
 
   let paraDetails;
+  let companyName;
+
+
 
   let det = document.querySelectorAll('.col-md-7');
 
 
   function compDetails(){
+    companyName = det[0].innerHTML;
 
+  // console.log(companyName);
     $.post("../../includes/Placement/placement-details.inc.php",{
       session:session,
+      companyName:companyName,
       companyID: companyID
     },(data, status)=>{
 
       $("#code").html(data);
-      setTimeout(compDetails, 2000);
+      setTimeout(compDetails, 1000);
 
     });
   }
@@ -206,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   $('#edit-submit').unbind("click").click(()=>{
     console.log(session);
+
     // console.log( $('#addrs').val());
     $.post("../../includes/Placement/placement-edit.php",{
       session:session,
@@ -236,4 +248,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
       console.log(data);
     });
   });
+
 });

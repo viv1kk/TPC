@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
+// columns, rows, placementStudent, placementSearch, searchKeys
 
-
-
+let hor, ver, ps, psh, sk;
 
 
   $('#search').unbind("click").click(()=>{
@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       placementSearch = search;
       // console.log(placementSearch);
-
 
 
 
@@ -155,7 +154,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
         console.log(searchKeys);
 
 
-        generate_table(columns, rows, placementStudent, placementSearch,searchKeys);
+
+        hor = columns;
+        ver = rows;
+        ps = placementStudent;
+        psh = placementSearch;
+        sk = searchKeys;
+
+        generate_table(hor, ver, ps, psh, sk);
+
+        // generate_table(columns, rows, placementStudent, placementSearch,searchKeys);
         let tableInfo = document.getElementById('dtBasicExample').childNodes[1];
         // console.log(tableInfo.rows.length);
         for(let i = 0; i < tableInfo.rows.length; i++){
@@ -167,10 +175,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             window.open(linkStd, '_blank');
           });
         }
-
       });
     });
   }
+
+
 
 
 

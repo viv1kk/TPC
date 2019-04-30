@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2019 at 07:42 PM
+-- Generation Time: Apr 30, 2019 at 07:59 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -30,20 +30,33 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `companydb` (
   `company_ID` int(9) UNSIGNED NOT NULL,
-  `company_name` varchar(200) NOT NULL,
-  `company_email` tinytext,
-  `company_contact_number` bigint(10) UNSIGNED DEFAULT NULL,
-  `cse` tinyint(1) NOT NULL,
-  `it` tinyint(1) NOT NULL
+  `company_name` tinytext NOT NULL,
+  `company_address` tinytext,
+  `date_of_placement` date DEFAULT NULL,
+  `salary` int(10) DEFAULT NULL,
+  `place_of_placement` tinytext,
+  `date_of_joining` date DEFAULT NULL,
+  `batch` tinytext,
+  `website` tinytext,
+  `contact_person` tinytext,
+  `email_1` tinytext,
+  `contact_no_1` bigint(10) DEFAULT NULL,
+  `email_2` tinytext,
+  `contact_no_2` bigint(10) DEFAULT NULL,
+  `cse` tinyint(1) DEFAULT NULL,
+  `it` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `companydb`
+-- Table structure for table `session`
 --
 
-INSERT INTO `companydb` (`company_ID`, `company_name`, `company_email`, `company_contact_number`, `cse`, `it`) VALUES
-(1, 'GOOGLE INC', 'hire@google.com', 1234567890, 1, 0),
-(2, 'APPLE INC', 'hire@apple.com', 9876543210, 0, 1);
+CREATE TABLE `session` (
+  `ID` int(5) UNSIGNED NOT NULL,
+  `session` int(4) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -71,8 +84,15 @@ CREATE TABLE `studentdb` (
 --
 
 INSERT INTO `studentdb` (`user_ID`, `reg_no`, `roll_no`, `student_name`, `father_name`, `branch`, `shift`, `email`, `contact_no`, `dob`, `company`, `address`) VALUES
-(1, 16003776, 16014050028, 'VIVEK KOHLI', 'JEET SINGH', 'CSE', 'SHIFT_1', 'vivekkohli935@gmail.com', 8755283315, '1999-12-21', 'GOOGLE INC', 'Srinagar, Pauri Garhwal'),
-(2, 16003777, 16014050024, 'I DON\'T KNOW', 'BLAH BLAH', 'IT', 'SHIFT_1', 'idontknow@gmail.com', 0, '2000-12-12', 'APPLE INC', 'Srinagar, Pauri Garhwal');
+(6, 75643212, 16014050023, 'SHIVANI BHATT', 'HARIRSH BHATT', 'IT', 'SHIFT_1', 'shivanibbhatt204@gmail.com', 9876543210, '1996-02-21', 'GOOGLE INC', 'SRINAGAR, PAURI GARHWAL'),
+(12, 12345678, NULL, NULL, NULL, 'IT', 'SHIFT_1', NULL, NULL, NULL, 'APPLE INC', NULL),
+(14, 87654321, NULL, NULL, NULL, 'IT', 'SHIFT_1', NULL, NULL, NULL, NULL, NULL),
+(16, 21212121, NULL, NULL, NULL, 'IT', 'OTHER', NULL, NULL, NULL, NULL, NULL),
+(17, 43534343, NULL, 'VIVEK KOHLI', NULL, 'CSE', 'SHIFT_2', NULL, NULL, NULL, 'GOOGLE INC', NULL),
+(18, 43534342, NULL, 'VIVEK KOHLI', NULL, 'CSE', 'SHIFT_2', NULL, NULL, NULL, 'GOOGLE INC', NULL),
+(19, 16014025, 16014050029, NULL, NULL, 'IT', 'SHIFT_1', NULL, NULL, NULL, 'AISAN FIEM AUTOMOTIVES', NULL),
+(20, 23343321, NULL, NULL, NULL, 'CSE', 'SHIFT_1', NULL, NULL, NULL, 'GOOGLE INC', NULL),
+(21, 16003776, 16014050028, 'VIVEK KOHLI', 'JEET SINGH', 'CSE', 'SHIFT_1', 'vivekkohli935@gmail.com', 8755283315, '1999-12-21', 'GOOGLE INC', 'Srinagar, Pauri Garhwal');
 
 -- --------------------------------------------------------
 
@@ -103,9 +123,18 @@ INSERT INTO `users` (`userid`, `username`, `email`, `pwd`) VALUES
 --
 ALTER TABLE `companydb`
   ADD PRIMARY KEY (`company_ID`),
-  ADD UNIQUE KEY `company_name` (`company_name`),
-  ADD UNIQUE KEY `company_contact_number` (`company_contact_number`),
-  ADD UNIQUE KEY `company_email` (`company_email`(50));
+  ADD UNIQUE KEY `company_name` (`company_name`(255)),
+  ADD UNIQUE KEY `contact_no_1` (`contact_no_1`),
+  ADD UNIQUE KEY `contact_no_2` (`contact_no_2`),
+  ADD UNIQUE KEY `email_1` (`email_1`(255)),
+  ADD UNIQUE KEY `email_2` (`email_2`(255));
+
+--
+-- Indexes for table `session`
+--
+ALTER TABLE `session`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `session` (`session`);
 
 --
 -- Indexes for table `studentdb`
@@ -129,13 +158,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `companydb`
 --
 ALTER TABLE `companydb`
-  MODIFY `company_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `company_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `session`
+--
+ALTER TABLE `session`
+  MODIFY `ID` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `studentdb`
 --
 ALTER TABLE `studentdb`
-  MODIFY `user_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_ID` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`

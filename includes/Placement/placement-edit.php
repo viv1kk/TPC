@@ -241,7 +241,7 @@ $_POST['email_1'], $_POST['contact_no_1'], $_POST['email_2'], $_POST['contact_no
       $sql = "SELECT company_ID, company_name FROM companydb$session WHERE compay_name = '$companyName';";
       $result = mysqli_query($conn, $sql);
 
-      if(mysqli_num_rows($result) > 0){
+      if(mysqli_num_rows(mysqli_query($conn, $sql)) > 0){
         $row = mysqli_fetch_assoc($result);
 
         if($row['company_ID'] !== $companyID){
