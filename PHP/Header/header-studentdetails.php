@@ -37,9 +37,19 @@
         <a class="nav-link ml-4" id="enroll_student">Enroll a Student</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link ml-3" id="add_company">Add a Company for Placement</a>
+      <li class="nav-item dropdown ml-4">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Placement
+        </a>
+        <div class="dropdown-menu ml-3" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" id= "search_company">Search a Company</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" id= "add_company">Add a Company for Placement</a>
+        </div>
       </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link ml-3" id="add_company">Add a Company for Placement</a>
+      </li> -->
     </ul>
     <form class="form-inline" action="../../includes/signout.inc.php">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Sign Out</button>

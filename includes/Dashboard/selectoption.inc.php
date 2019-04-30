@@ -24,7 +24,7 @@ if(isset($_POST['branchName'], $_POST['session'])){
       $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for CSE</option>";
+      $options .= "<option value='NONE' selected >NONE Available for CSE</option>";
     }
     echo $options;
     exit();
@@ -44,7 +44,7 @@ if(isset($_POST['branchName'], $_POST['session'])){
       $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for IT</option>";
+      $options .= "<option value='NONE' selected >NONE Available for IT</option>";
     }
     echo $options;
     exit();
@@ -63,7 +63,7 @@ if(isset($_POST['branchName'], $_POST['session'])){
       $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for ELEX</option>";
+      $options .= "<option value='NONE' selected >NONE Available for ELEX</option>";
     }
     echo $options;
     exit();
@@ -82,7 +82,7 @@ if(isset($_POST['branchName'], $_POST['session'])){
       $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for ELEC</option>";
+      $options .= "<option value='NONE' selected >NONE Available for ELEC</option>";
     }
     echo $options;
     exit();
@@ -101,7 +101,7 @@ if(isset($_POST['branchName'], $_POST['session'])){
       $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for MECH_PRO</option>";
+      $options .= "<option value='NONE' selected >NONE Available for MECH_PRO</option>";
     }
     echo $options;
     exit();
@@ -120,7 +120,7 @@ if(isset($_POST['branchName'], $_POST['session'])){
       $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for MECH_AUTO</option>";
+      $options .= "<option value='NONE' selected >NONE Available for MECH_AUTO</option>";
     }
     echo $options;
     exit();
@@ -139,7 +139,7 @@ if(isset($_POST['branchName'], $_POST['session'])){
       $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for CIVIL</option>";
+      $options .= "<option value='NONE' selected >NONE Available for CIVIL</option>";
     }
     echo $options;
     exit();
@@ -158,8 +158,7 @@ if(isset($_POST['branchName'], $_POST['session'])){
       $options .= "<option value = 'NONE'>None</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available</option>";
-
+      $options .= "<option value='NONE' selected>NONE Available</option>";
     }
     echo $options;
     exit();
@@ -192,7 +191,7 @@ if(isset($_POST['branchNameEn'], $_POST['session'])){
       $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for CSE</option>";
+      $options .= "<option value='NONE' selected >NONE Available for CSE</option>";
     }
     echo $options;
     exit();
@@ -211,7 +210,7 @@ if(isset($_POST['branchNameEn'], $_POST['session'])){
       $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for IT</option>";
+      $options .= "<option value='NONE' selected >NONE Available for IT</option>";
     }
     echo $options;
     exit();
@@ -230,7 +229,7 @@ if(isset($_POST['branchNameEn'], $_POST['session'])){
       $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for ELEX</option>";
+      $options .= "<option value='NONE' selected >NONE Available for ELEX</option>";
     }
     echo $options;
     exit();
@@ -249,7 +248,7 @@ if(isset($_POST['branchNameEn'], $_POST['session'])){
       $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for ELEC</option>";
+      $options .= "<option value='NONE' selected >NONE Available for ELEC</option>";
     }
     echo $options;
     exit();
@@ -268,7 +267,7 @@ if(isset($_POST['branchNameEn'], $_POST['session'])){
       $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for MECH_PRO</option>";
+      $options .= "<option value='NONE' selected >NONE Available for MECH_PRO</option>";
     }
     echo $options;
     exit();
@@ -287,7 +286,7 @@ if(isset($_POST['branchNameEn'], $_POST['session'])){
       $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for MECH_AUTO</option>";
+      $options .= "<option value='NONE' selected >NONE Available for MECH_AUTO</option>";
     }
     echo $options;
     exit();
@@ -306,7 +305,7 @@ if(isset($_POST['branchNameEn'], $_POST['session'])){
       $options .= "<option value = 'NONE'>NONE</option>";
     }
     else{
-      $options .= "<option value='NONE' selected disabled>NONE Available for CIVIL</option>";
+      $options .= "<option value='NONE' selected >NONE Available for CIVIL</option>";
     }
     echo $options;
     exit();

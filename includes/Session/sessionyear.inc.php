@@ -109,7 +109,7 @@ if(isset($_POST['year'])){
                  company_name TINYTEXT NOT NULL ,
                  company_address TINYTEXT DEFAULT NULL ,
                  date_of_placement DATE DEFAULT NULL ,
-                 salary INT(10) DEFAULT NULL ,
+                 salary TINYTEXT DEFAULT NULL ,
                  place_of_placement TINYTEXT DEFAULT NULL ,
                  date_of_joining DATE DEFAULT NULL ,
                  batch TINYTEXT  DEFAULT NULL ,

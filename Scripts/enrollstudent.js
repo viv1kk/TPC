@@ -11,9 +11,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   let dashboard = "dashboard.php?session="+session;
   let add_company = "addcompany.php?session="+session;
+  let search_company = "placementsearch.php?session="+session;
+
 
   $("#dashboard").attr("href", dashboard);
   $("#add_company").attr("href", add_company);
+  $("#search_company").attr("href", search_company);
 
 
   $(window).keydown(function(event){
@@ -22,10 +25,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       return false;
     }
   });
-
-
-
-
 
   //AJAX for getting company Names
 

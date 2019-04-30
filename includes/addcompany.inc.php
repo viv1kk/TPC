@@ -73,9 +73,6 @@ if(isset($_POST['session'], $_POST['comp_name'], $_POST['address'], $_POST['dop'
   }
 
 
-
-
-
   $errorEmpty = false;
   $errorEmail = false;
   $errorEmail1 = false;

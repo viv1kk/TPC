@@ -11,6 +11,7 @@
 <script type="text/javascript" src="../../Sweet Alert/sweetalert2.min.js"></script>
 <script type="text/javascript" src="../../Libs/notify.js"></script>
 <script type="text/javascript" src="../../Scripts/sessiondrop.js"></script>
+<script type="text/javascript" src="../../Scripts/placementdrop.js"></script>
 <script type="text/javascript" src="../../Scripts/dashboard.js"></script>
 </body>
 </html>

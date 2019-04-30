@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   let enroll_student = "enrollstudent.php?session="+session;
   let dashboard = "dashboard.php?session="+session;
+  let search_company = "placementsearch.php?session="+session;
 
   $("#enroll_student").attr("href", enroll_student);
   $("#dashboard").attr("href", dashboard);
+  $("#search_company").attr("href", search_company);
 
 
   $(window).keydown(function(event){

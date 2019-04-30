@@ -179,8 +179,13 @@ require "../Header/header-studentdetails.php";
             <div class="col-md-6 mb-3">
               <label for="branch">Branch</label>
               <select class="custom-select" name="branch" id="branch_select" >
-                <option value="cse">Computer Science And Engineering</option>
-                <option value="it">Information Technology</option>
+                <option value="CSE">Computer Science And Engineering</option>
+                <option value="IT">Information Technology</option>
+                <option value='ELEX'>Electronics Engineering</option>
+                <option value='ELEC'>Electrical Engineering</option>
+                <option value='MECH_PRO'>Mechanical Production</option>
+                <option value='MECH_AUTO'>Mechanical Automobile</option>
+                <option value='CIVIL'>Civil Engineering</option>
               </select>
             </div>
 

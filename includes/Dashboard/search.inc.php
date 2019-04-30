@@ -63,7 +63,7 @@ $_POST['email'], $_POST['mobNo'], $_POST['dob'], $_POST['companyName'], $_POST['
     $errorEmail = true;
 
     echo "<script>
-    document.getElementById('jumbot').style.display = 'none';;
+    document.getElementById('jumbot').style.display = 'none';
     </script>";
   }
   else{
