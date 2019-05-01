@@ -14,7 +14,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Student Details</title>
+  <title>Placement Details</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
