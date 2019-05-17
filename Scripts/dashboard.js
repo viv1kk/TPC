@@ -166,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var tbl = document.createElement("table");
     tbl.setAttribute("class","table table-striped table-responsive table-bordered table-lg table-hover");
     tbl.setAttribute("id","dtBasicExample");
+    tbl.setAttribute("border","2");
 
 
 
@@ -262,10 +263,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
         "ordering":true,
         "info":true,
         "searching":false,
+
       });
       $('.dataTables_length').addClass('bs-select');
     }
     // dragableColumns
     $('#dtBasicExample').dragableColumns();
+
   }
+
+
+
+
+let prnt = document.getElementById("print");
+prnt.addEventListener("click", ()=>{
+
+
+  function printData()
+  {
+     var divToPrint=document.getElementById("dtBasicExample");
+     newWin= window.open("");
+     newWin.document.write(divToPrint.outerHTML);
+     newWin.print();
+     newWin.close();
+  }
+
+  printData();
+
+});
 });

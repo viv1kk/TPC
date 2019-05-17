@@ -224,9 +224,12 @@ require "../Header/header-dashboard.php";
 
   <!-- Jumbotron needed to be hidden  -->
 
-  <div class="jumbotron mb-2" id="jumbot">
+  <div class="jumbotron mb-1" id="jumbot">
     <div class="container-fluid row justify-content-center" id="contain">
     </div>
+    <br>
+    <br>
+    <img class = "mx-auto d-block img-fluid unlock-icon" src="../../Images/print.png" id = "print" alt="Print" width = "50" height = "50" align = "center" >
   </div>
 </main>
 

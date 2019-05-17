@@ -90,8 +90,9 @@ if(isset($_POST['session'], $_POST['companyID'], $_POST['companyName'])){
 
 
               for (let i = 0; i < arrayStd.length; i++){
-                details2.push(arrayStd[i]['student_name'], arrayStd[i]['roll_no']);
-                details2.push('__');
+                // details2.push('[');
+                details2.push('['+arrayStd[i]['student_name'], arrayStd[i]['roll_no']+ '] ');
+                // details2.push('],');
               }
 
               // console.log(details2);
@@ -109,20 +110,6 @@ if(isset($_POST['session'], $_POST['companyID'], $_POST['companyName'])){
 
               // echo mysqli_num_rows($result);
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           }
           // echo "<script>console.log(companyName);</script>";
           echo $data;

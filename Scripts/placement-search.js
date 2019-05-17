@@ -179,11 +179,6 @@ let hor, ver, ps, psh, sk;
     });
   }
 
-
-
-
-
-
   function generate_table(columns, rows, placementStudent, placementSearch, searchKeys) {
 
     // get the reference for the body
@@ -193,7 +188,7 @@ let hor, ver, ps, psh, sk;
     var tbl = document.createElement("table");
     tbl.setAttribute("class","table table-striped table-responsive table-bordered table-lg table-hover");
     tbl.setAttribute("id","dtBasicExample");
-
+    tbl.setAttribute("border","2");
 
 
     var tblHead = document.createElement("thead");
@@ -342,4 +337,23 @@ let hor, ver, ps, psh, sk;
     // dragableColumns
     $('#dtBasicExample').dragableColumns();
   }
+
+
+
+  let prnt = document.getElementById("print");
+  prnt.addEventListener("click", ()=>{
+
+
+    function printData()
+    {
+       var divToPrint=document.getElementById("dtBasicExample");
+       newWin= window.open("");
+       newWin.document.write(divToPrint.outerHTML);
+       newWin.print();
+       newWin.close();
+    }
+
+    printData();
+
+  });
 });
